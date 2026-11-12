@@ -146,7 +146,7 @@ h1 .slip{display:inline-block;color:var(--accent);transform:rotate(-4deg) transl
 @keyframes proof-draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
 @keyframes proof-settle{from{transform:rotate(-18deg)}to{transform:rotate(-10deg)}}
 @media (prefers-color-scheme:dark){:root:not([data-theme=light]) .proof-sheet{box-shadow:0 1px 1px rgb(0 0 0 / .4),0 12px 16px -10px rgb(0 0 0 / .55),0 22px 28px -18px rgb(0 0 0 / .5)}}
-:root:not([data-theme=light]) .proof-sheet::after{background:radial-gradient(ellipse at center,rgb(0 0 0 / .8),transparent 70%);height:18px;bottom:-11px;left:8%;right:8%;filter:blur(2.5px)}}
+:root:not([data-theme=light]) .proof-sheet::after{background:radial-gradient(ellipse at center,rgb(0 0 0 / .8),transparent 70%);height:18px;bottom:-11px;left:8%;right:8%;filter:blur(2.5px)}
 :root[data-theme=dark] .proof-sheet{box-shadow:0 1px 1px rgb(0 0 0 / .4),0 12px 16px -10px rgb(0 0 0 / .55),0 22px 28px -18px rgb(0 0 0 / .5)}
 :root[data-theme=dark] .proof-sheet::after{background:radial-gradient(ellipse at center,rgb(0 0 0 / .8),transparent 70%);height:18px;bottom:-11px;left:8%;right:8%;filter:blur(2.5px)}
 @media (max-width:880px){
