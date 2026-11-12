@@ -28,6 +28,10 @@ a{color:inherit}
 .mark.small{font-size:2.6rem}
 
 .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:2rem;align-items:center;padding:clamp(2rem,6vw,5rem) clamp(1rem,4vw,3rem) clamp(2rem,5vw,4rem);max-width:1320px;margin:0 auto}
+.contact{grid-template-columns:minmax(0,40rem);align-items:start;padding-bottom:clamp(4rem,12vw,8rem)}
+.contact .hero-copy p{max-width:42ch}
+.contact .hero-copy p+p{margin:0 0 2rem}
+.top nav a[aria-current="page"]{text-decoration:underline;text-underline-offset:4px}
 .eyebrow,.kicker{font:600 .8rem/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 1rem}
 h1{font:800 clamp(3rem,8.6vw,7.4rem)/.9 var(--display);letter-spacing:-.045em;margin:0 0 1.5rem}
 h1 .slip{display:inline-block;color:var(--accent);transform:rotate(-4deg) translateY(.06em);transform-origin:left bottom}
