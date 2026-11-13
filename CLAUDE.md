@@ -4,39 +4,51 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-Hand-written static site for Slip3 Studios (an independent app studio) plus Mike Sabens' personal page. No build step, no package manager, no tests, no linter. Deployed on Vercel with `public/` as the deploy root.
-
-Preview locally by serving `public/` with any static server (`.claude/launch.json` defines this as `site` for the browser pane), e.g.:
+Hand-written static site for Slip3 Studios, an independent app studio. Deployed on Vercel with `public/` as the deploy root and no build step on Vercel: everything in `public/` is committed, including the output of the scripts below. No package.json; scripts are plain Node (no dependencies).
 
 ```bash
-python3 -m http.server 8000 -d public
+node scripts/build.mjs          # sync partials, journal list, RSS feed, sitemap into public/
+node scripts/build.mjs --check  # CI: fail if public/ is out of date
+node scripts/check-links.mjs    # every internal href/src/srcset/#fragment resolves
+npx --yes html-validate@11.21.1 "public/**/*.html"   # needs Node 22+
+python3 -m http.server 8000 -d public                 # local preview (`site` in .claude/launch.json)
 ```
 
-Note that Vercel-only behavior in `public/vercel.json` (`cleanUrls`, `trailingSlash`, the `/contact` → `/about/` redirect, `/img/*` immutable caching) won't apply under a plain static server.
+**After editing any page, partial or journal post, run `node scripts/build.mjs`.** CI (`.github/workflows/site.yml`) runs the check mode, the link checker, html-validate and Lighthouse with budgets in `lighthouserc.json`.
 
-## Layout
+Vercel-only behavior in `public/vercel.json` (cleanUrls, trailing slashes, the `slip3-site.vercel.app` redirect, immutable caching for `/img/`, `/fonts/`, `/media/`) won't apply under a plain static server. Vercel Web Analytics is loaded only on the `slip3studios.com` host.
 
-- `public/` — everything that ships. Each route is a directory with an `index.html` (`/`, `/about/`, `/plonk/`, `/plonk/privacy/`, `/plonk/terms/`, `/mike/`). `/contact/` is a stub that redirects to `/about/` (also redirected in `vercel.json`).
-- `public/img/` — optimized `.webp` assets used by pages. Served with a one-year immutable cache, so **rename a file rather than overwrite it** when an image changes.
-- `public/og/` — 1200×630 Open Graph PNGs referenced by each page's `og:image`.
-- `raw/` — original JPG/PNG sources for the webp images. Not deployed.
-- `og-src/` — standalone HTML layouts (fixed 1200×630 body) rendered to `public/og/*.png` with `scripts/render-og.swift` (usage in its header comment). They reference images via `../public/img/`.
-- `public/` root also holds `robots.txt`, `sitemap.xml` (add new routes here), `404.html` (served by Vercel for unknown paths), `manifest.webmanifest`, and the PNG icons (`apple-touch-icon.png`, `icon-192.png`, `icon-512.png`) rendered from `favicon.svg` without its rounded corners.
+## How pages are put together
 
-Every indexable page carries an absolute `canonical`, `og:url`, and `og:image` on `https://slip3studios.com` (relative OG URLs break link previews). `vercel.json` redirects the `slip3-site.vercel.app` host to that domain.
+- **Partials** (`partials/head.html`, `header.html`, `footer.html`) are copied into every studio page between `<!-- partial:NAME -->` / `<!-- /partial:NAME -->` markers by `build.mjs`. Edit the partial, never the copy in a page. The build sets `aria-current="page"` on partial links matching the page's route and fills `{{year}}`. Page-specific head tags (title, description, canonical, OG, JSON-LD, preloads) sit above the head partial.
+- **New page:** copy an existing one (e.g. `public/press/index.html`), keep the markers empty, give it an absolute `canonical`/`og:url`/`og:image` on `https://slip3studios.com`, then run the build. The sitemap picks it up from its canonical (pages with `noindex` are skipped).
+- **Journal posts** live in `public/journal/<slug>/index.html`. The build reads `og:title`, `description`, `article:published_time` and `article:section` from each post to generate the list between `<!-- generated:journal-list -->` markers (on `/` and `/journal/`) and `public/journal/feed.xml`.
+- **`/about/`** covers the studio and its founder (there is no separate personal page). **`/contact/`** is the single contact page for every Slip3 game: support, privacy requests and press, all at slip3studios@gmail.com. Each game keeps its own privacy and terms pages (e.g. `/plonk/privacy/`); Formation Lab and The Starting 5 have their own sites and support pages, linked from `/contact/`. `public/404.html` is Vercel's not-found page.
 
-## Two separate design systems
+## Design system (studio.css)
 
-1. **Studio pages** (`/`, `/about/`, `/plonk/**`) share `public/studio.css` and `public/theme.js`. Each page repeats the same head boilerplate: Bricolage Grotesque from Google Fonts, `/studio.css`, and an inline script that applies the saved `s3-theme` from `localStorage` to `<html data-theme>` before paint; `/theme.js` (deferred, at the end of body) wires the `.theme` toggle button. The header (`.top` with the `.mark` "slip3" wordmark and nav) and footer are duplicated in every page — update all of them when nav/footer changes.
-2. **`/mike/`** is self-contained: its own `mike.css`, fonts (Instrument Serif + JetBrains Mono), favicon, and palette. It follows system dark mode only (no toggle, no `theme.js`).
+Colors are CSS custom properties on `:root` (`--bg`, `--ink`, `--muted`, `--line`, `--card`, `--accent` = `#ff5a1f`). Dark values are defined twice and must stay in sync: under `@media (prefers-color-scheme:dark){:root:not([data-theme=light])}` and under `:root[data-theme=dark]`. `theme.js` toggles `data-theme` and stores it as `s3-theme` in localStorage. `<meta name="theme-color">` in the head partial mirrors `--bg`.
 
-### Theming convention (studio.css)
+Each app has a palette class (`.p-fl`, `.p-s5`, `.p-fold`, `.p-plonk`) setting `--pa/--pb/--pt`; used by homepage `.product` cards and by case-study pages (`<main class="p-…">` + `.case-hero`). Scope card-only rules to `.product.p-…` so they don't leak into case pages.
 
-Colors are CSS custom properties on `:root` (`--bg`, `--ink`, `--muted`, `--line`, `--card`, `--accent` = `#ff5a1f`). Dark values are defined twice and must stay in sync: under `@media (prefers-color-scheme:dark){:root:not([data-theme=light])}` and under `:root[data-theme=dark]`. The `<meta name="theme-color">` tags in each page mirror `--bg` (`#f3efe6` light / `#0e0d0c` dark).
+The brand motif is the tilted, offset orange "3" (`--tilt:-10deg`, `.mark .three`); it carries across pages via a CSS view transition. "Slipped" elements reuse `--accent`. Fonts are self-hosted Latin subsets in `public/fonts/` (licenses in `LICENSES.md`).
 
-The brand motif is the tilted, offset orange "3" (`--tilt:-10deg`, `.mark .three`); "slipped" elements elsewhere (e.g. `h1 .slip`, the About portrait's back plane) reuse `--accent` to match it.
+The About page bio paragraphs are locked copy; don't reword them.
 
-## Conventions
+## Demos
 
-- Commit subjects are one plain imperative sentence (e.g. "Add the Plonk product page"), often with a short body saying what changed and what was deliberately left alone.
-- Products are listed in several places: the homepage (meta description, hero lede, fan, ticker, work section), the `/mike/` project list, the `og-src/` cards, and the README. Keep them consistent when adding or renaming one.
+`public/demos.js` powers the interactive pieces, each started from a `data-demo` element: `play` (Formation Lab SVG play animation), `quiz` (Starting 5 shot-clock sample; the questions are real NBA facts, keep them verifiable), `plonk` (canvas physics toy using the game's Critters art, `img/plonk-critter-N-160.webp`). `[data-trailer]` wraps a muted video that autoplays unless reduced motion is on, with a pause button.
+
+## Images and media
+
+- `raw/` holds sources (not deployed). `node scripts/images.mjs` makes `public/img/<source>-<width>.webp` for the sources listed in its `JOBS` table (needs `cwebp`). `/img/` is cached immutably for a year, so **give a changed image a new filename instead of overwriting it.** Older single-size images (`fl-shot1.webp`, icons) predate the script.
+- Latest store art lives outside the repo in `~/App Resources/<App>/screenshots/` (Plonk: `iphone-6.3`; Formation Lab: `store-v2/iphone61`; Starting 5: `store-v2/leather/iphone61`). Copy into `raw/` as JPG, then run the image script.
+- `public/media/` holds the web-encoded Plonk trailer (ffmpeg, 444px wide, no audio) and its poster.
+- OG cards: `og-src/*.html` layouts rendered with `scripts/render-og.swift` (usage in its header) to `public/og/*.png`. Case studies and journal posts each point at a card; `og-src/wordmark-*.html` render the press-kit logos at 1600×800.
+- Press kit: `scripts/press-kit.sh` builds `public/press/slip3-studios-press-kit.zip` from `raw/`, `press/README.txt` and the rendered wordmarks. Update the size in the download button on `/press/` when it changes.
+
+## Content rules
+
+Facts on case studies (launch dates, versions, ratings, pipeline details) come from the app repos in `~/Development` (`Juke` = Formation Lab, `the-starting-five`, `TheFold`, `godot-games/plonk-ios`) and the public iTunes lookup API. Don't invent metrics, testimonials or claims; update the facts when an app ships a release. When adding or renaming an app, update the homepage cards, ticker and fan, its case-study page, the footer partial, `/about/`, `/press/` (page and kit), the OG cards in `og-src/`, and the README.
+
+Commit subjects are one plain imperative sentence, often with a short body saying what changed and what was deliberately left alone.

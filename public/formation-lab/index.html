@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Formation Lab — Slip3 Studios</title>
+<meta name="description" content="How Slip3 Studios built Formation Lab, the flag football play designer for youth coaches: draw a play in sixty seconds, watch it run, and send it to the team.">
+<link rel="canonical" href="https://slip3studios.com/formation-lab/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://slip3studios.com/formation-lab/">
+<meta property="og:site_name" content="Slip3 Studios">
+<meta property="og:title" content="Formation Lab — a Slip3 Studios case study">
+<meta property="og:description" content="A flag football play designer for youth coaches. Draw a play in sixty seconds, watch it run, and send it to the team.">
+<meta property="og:image" content="https://slip3studios.com/og/formation-lab.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Formation Lab app icon with an animated flag football play">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"MobileApplication","name":"Formation Lab: Flag Football","url":"https://slip3studios.com/formation-lab/","sameAs":["https://formationlab.app/","https://apps.apple.com/us/app/formation-lab-flag-football/id6804097907"],"applicationCategory":"SportsApplication","operatingSystem":"iOS, iPadOS, Web","datePublished":"2026-09-10","softwareVersion":"2.0","image":"https://slip3studios.com/img/fl-icon.webp","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"Slip3 Studios","url":"https://slip3studios.com/"}}</script>
+<!-- partial:head -->
+<meta name="theme-color" content="#f3efe6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e0d0c" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="alternate" type="application/rss+xml" title="Slip3 Studios Journal" href="/journal/feed.xml">
+<link rel="preload" href="/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/studio.css">
+<script>try{var t=localStorage.getItem('s3-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script src="/theme.js" defer></script>
+<script>if(location.hostname==='slip3studios.com'){var s=document.createElement('script');s.src='/_vercel/insights/script.js';s.defer=true;document.head.appendChild(s)}</script>
+<!-- /partial:head -->
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+
+<!-- partial:header -->
+<header class="top">
+  <a class="mark" href="/" aria-label="Slip3 Studios home"><span>slip</span><span class="three" aria-hidden="true">3</span></a>
+  <nav aria-label="Primary">
+    <a href="/#work">Work</a>
+    <a href="/journal/">Journal</a>
+    <a href="/about/">About</a>
+    <button class="theme" type="button" aria-label="Toggle dark mode"><span aria-hidden="true">◐</span></button>
+  </nav>
+</header>
+<!-- /partial:header -->
+
+<main id="content" class="p-fl">
+  <div class="case-top">
+    <section class="case-hero" aria-labelledby="case-title">
+      <div>
+        <div class="p-head">
+          <img class="icon" src="/img/fl-icon.webp" alt="Formation Lab app icon" width="96" height="96">
+          <div>
+            <p class="kicker">Case study · Sports</p>
+            <h1 id="case-title">Formation Lab</h1>
+          </div>
+        </div>
+        <p class="case-pitch">A play designer for youth flag football coaches. Draw a play in sixty seconds, watch it run, and send it to the team.</p>
+        <div class="hero-cta">
+          <a class="btn" href="https://apps.apple.com/us/app/formation-lab-flag-football/id6804097907" rel="noopener">App Store ↗</a>
+          <a class="btn ghost" href="https://formationlab.app/draw/" rel="noopener">Draw a play on the web ↗</a>
+        </div>
+        <dl class="facts">
+          <div><dt>Launched</dt><dd>September 2026</dd></div>
+          <div><dt>Releases</dt><dd>8, through v2.0</dd></div>
+          <div><dt>Platforms</dt><dd>iPhone · iPad · Web</dd></div>
+          <div><dt>Price</dt><dd>Free to start</dd></div>
+        </dl>
+      </div>
+      <div class="case-media">
+        <img src="/img/fl-store-01-kids-get-it-540.webp" srcset="/img/fl-store-01-kids-get-it-540.webp 540w, /img/fl-store-01-kids-get-it-1080.webp 1080w" sizes="(max-width: 900px) 260px, 320px" alt="Formation Lab store frame: Plays kids actually get. An animated play with the ball in the air." width="540" height="1174" fetchpriority="high">
+      </div>
+    </section>
+  </div>
+
+  <section class="sec" aria-labelledby="brief-title">
+    <h2 id="brief-title" class="section-title"><span>01</span> The brief</h2>
+    <div class="brief">
+      <p class="lead">Youth flag football coaches call plays from a phone on the sideline, with a minute between snaps and often one bar of signal.</p>
+      <div>
+        <p>The tools they had were built for pro playbooks: depth charts, game-day call sheets, and a dozen menus between a coach and the play they wanted to show. The first TestFlight build of Formation Lab leaned the same way.</p>
+        <p>One piece of tester feedback changed the product. It became the spec, and the app was cut back to what a coach needs between snaps.</p>
+        <blockquote class="pull">
+          <p>“I just want to call plays, not manage a whole pro football gameday callsheet.”</p>
+          <cite>A coach, on TestFlight build 1</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="decisions-title">
+    <h2 id="decisions-title" class="section-title"><span>02</span> Key decisions</h2>
+    <ol class="decisions">
+      <li><h3>A field and a fingertip.</h3><p>Pick a formation and drag routes onto the field. Formations match the league: 5v5, 7v7 or 9v9, with positions labeled the way the team calls them.</p></li>
+      <li><h3>Plays that move.</h3><p>Every play animates from snap to catch. Coaches export a play, or a whole playbook, as a short video that drops straight into the team group chat.</p></li>
+      <li><h3>Paper still matters.</h3><p>Call sheets print one to twelve plays a page, and wristband cards print at actual size, eight plays to a card.</p></li>
+      <li><h3>Built for the sideline.</h3><p>Everything works offline. A playbook per season keeps last fall’s plays out of this spring’s, and the app stores no player information at all.</p></li>
+    </ol>
+  </section>
+
+  <section class="sec" aria-labelledby="try-title">
+    <h2 id="try-title" class="section-title"><span>03</span> Watch a play run</h2>
+    <div class="demo" data-demo="play">
+      <div>
+        <svg class="field" viewBox="0 0 360 300" role="img" aria-label="An animated flag football play: the quarterback drops back, X runs a slant, Z goes deep, the center runs a hitch, and Y catches the pass on an out route."></svg>
+        <div class="scrub"><label class="visually-hidden" for="fl-scrub">Scrub through the play</label><input id="fl-scrub" type="range" min="0" max="1000" value="0"></div>
+      </div>
+      <div class="demo-copy">
+        <h3>Y Option, from snap to catch.</h3>
+        <p>This is the idea at the heart of the app: a play players can watch instead of decode. Run it again, or drag the slider to step through it the way coaches do in the huddle.</p>
+        <button class="btn" type="button" data-run>▶ Run the play</button>
+        <p class="demo-note">A simplified web sketch. The app and <a href="https://formationlab.app/draw/" rel="noopener">the web editor</a> run the real engine.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="store-title">
+    <h2 id="store-title" class="section-title"><span>04</span> In the App Store</h2>
+    <div class="strip" role="list" aria-label="Formation Lab App Store frames">
+      <figure role="listitem"><img src="/img/fl-store-01-kids-get-it-540.webp" srcset="/img/fl-store-01-kids-get-it-540.webp 540w, /img/fl-store-01-kids-get-it-1080.webp 1080w" sizes="270px" width="540" height="1174" loading="lazy" alt="Plays kids actually get: an animated play on a dark field."><figcaption>Plays kids actually get</figcaption></figure>
+      <figure role="listitem"><img src="/img/fl-store-02-text-the-team-540.webp" srcset="/img/fl-store-02-text-the-team-540.webp 540w, /img/fl-store-02-text-the-team-1080.webp 1080w" sizes="270px" width="540" height="1174" loading="lazy" alt="Text it to the team: a play video in a group chat, with replies from players."><figcaption>Text it to the team</figcaption></figure>
+      <figure role="listitem"><img src="/img/fl-store-03-wristbands-540.webp" srcset="/img/fl-store-03-wristbands-540.webp 540w, /img/fl-store-03-wristbands-1080.webp 1080w" sizes="270px" width="540" height="1174" loading="lazy" alt="On every kid's wrist: a printed wristband card with eight plays."><figcaption>Wristbands, actual size</figcaption></figure>
+      <figure role="listitem"><img src="/img/fl-store-04-draw-540.webp" srcset="/img/fl-store-04-draw-540.webp 540w, /img/fl-store-04-draw-1080.webp 1080w" sizes="270px" width="540" height="1174" loading="lazy" alt="Draw it in 60 seconds: a finger drags a route on the field."><figcaption>Draw it in 60 seconds</figcaption></figure>
+      <figure role="listitem"><img src="/img/fl-store-05-playbook-540.webp" srcset="/img/fl-store-05-playbook-540.webp 540w, /img/fl-store-05-playbook-1080.webp 1080w" sizes="270px" width="540" height="1174" loading="lazy" alt="Your whole playbook: a grid of plays with search and tags."><figcaption>Your whole playbook</figcaption></figure>
+      <figure role="listitem"><img src="/img/fl-store-06-call-sheet-540.webp" srcset="/img/fl-store-06-call-sheet-540.webp 540w, /img/fl-store-06-call-sheet-1080.webp 1080w" sizes="270px" width="540" height="1174" loading="lazy" alt="Print your call sheet: a printed page of four plays."><figcaption>Print your call sheet</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="built-title">
+    <h2 id="built-title" class="section-title"><span>05</span> How it’s built</h2>
+    <div class="built">
+      <div>
+        <p>Formation Lab is a native SwiftUI app for iPhone and iPad. Plays are drawn by a rendering engine that lives in its own pure-Swift package, with no UIKit, so the same code draws the canvas, the animation, the exported video and the printed page.</p>
+        <p>The web editor at formationlab.app/draw runs a TypeScript port of that engine, held to the Swift engine’s golden snapshots. A play draws the same on a phone, in a browser and on paper.</p>
+      </div>
+      <dl class="stack-list">
+        <dt>App</dt><dd>Swift · SwiftUI · Swift Testing</dd>
+        <dt>Engine</dt><dd>Swift package, ported to TypeScript</dd>
+        <dt>Backend</dt><dd>Convex</dd>
+        <dt>Web</dt><dd>Next.js on Vercel</dd>
+        <dt>Store video</dt><dd>Remotion, rendered from engine output</dd>
+      </dl>
+    </div>
+  </section>
+
+  <a class="next-case" href="/starting-5/"><span>Next case study</span><b>The Starting 5 →</b></a>
+</main>
+
+<!-- partial:footer -->
+<footer class="foot">
+  <a class="mark small" href="/" aria-label="Slip3 Studios home"><span>slip</span><span class="three" aria-hidden="true">3</span></a>
+  <p>An independent app studio for iPhone, iPad and the web.</p>
+  <ul aria-label="Apps">
+    <li><a href="/formation-lab/" aria-current="page">Formation Lab</a></li>
+    <li><a href="/starting-5/">Starting 5</a></li>
+    <li><a href="/the-fold/">The Fold</a></li>
+    <li><a href="/plonk/">Plonk</a></li>
+  </ul>
+  <p class="fine"><span class="foot-links"><a href="/about/">About</a> · <a href="/journal/">Journal</a> · <a href="/press/">Press</a> · <a href="/contact/">Contact</a> · <a href="/privacy/">Privacy</a> · <a href="mailto:slip3studios@gmail.com">slip3studios@gmail.com</a> · <a href="/journal/feed.xml">RSS</a></span><span class="doc-links">© 2026 Slip3 Studios. App Store is a service mark of Apple Inc. · <a href="/plonk/privacy/">Plonk Privacy</a> · <a href="/plonk/terms/">Plonk Terms</a></span></p>
+</footer>
+<!-- /partial:footer -->
+<script src="/demos.js" defer></script>
+</body>
+</html>

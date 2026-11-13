@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Slip3 Studios Journal</title>
+  <link>https://slip3studios.com/journal/</link>
+  <atom:link href="https://slip3studios.com/journal/feed.xml" rel="self" type="application/rss+xml"/>
+  <description>Build notes and release stories from Slip3 Studios.</description>
+  <language>en-us</language>
+  <lastBuildDate>Fri, 13 Nov 2026 12:00:00 GMT</lastBuildDate>
+  <item>
+    <title>A new game every night</title>
+    <link>https://slip3studios.com/journal/how-starting-5-builds-a-game/</link>
+    <guid>https://slip3studios.com/journal/how-starting-5-builds-a-game/</guid>
+    <pubDate>Fri, 13 Nov 2026 12:00:00 GMT</pubDate>
+    <category>The Starting 5</category>
+    <description>The Starting 5 builds each day’s NBA trivia game overnight with an automated pipeline. Here is how it works.</description>
+  </item>
+  <item>
+    <title>Every frame is the real game</title>
+    <link>https://slip3studios.com/journal/plonk-store-art-is-real-gameplay/</link>
+    <guid>https://slip3studios.com/journal/plonk-store-art-is-real-gameplay/</guid>
+    <pubDate>Fri, 13 Nov 2026 12:00:00 GMT</pubDate>
+    <category>Plonk</category>
+    <description>How Plonk’s App Store screenshots and preview video were made from the shipping game, with nothing painted in.</description>
+  </item>
+  <item>
+    <title>The one-sentence spec</title>
+    <link>https://slip3studios.com/journal/formation-lab-one-sentence-spec/</link>
+    <guid>https://slip3studios.com/journal/formation-lab-one-sentence-spec/</guid>
+    <pubDate>Fri, 13 Nov 2026 12:00:00 GMT</pubDate>
+    <category>Formation Lab</category>
+    <description>Formation Lab has no product requirements document. One line of TestFlight feedback replaced it.</description>
+  </item>
+</channel>
+</rss>
