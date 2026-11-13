@@ -2,8 +2,8 @@
 
 Static site for Slip3 Studios, an independent app studio.
 
-- `/` — studio home: Formation Lab, The Starting 5, The Fold, and Plonk (coming soon)
-- `/formation-lab/`, `/starting-5/`, `/the-fold/`, `/plonk/` — case studies with interactive demos
+- `/` — studio home: Formation Lab, The Starting 5, The Fold, and Plonk
+- `/formation-lab/`, `/starting-5/`, `/the-fold/`, `/plonk/` — app pages with interactive demos
 - `/journal/` — build notes, with an RSS feed at `/journal/feed.xml`
 - `/about/` — the studio and its founder, Mike Sabens
 - `/contact/` — one contact page for support, privacy requests and press across the games

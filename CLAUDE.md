@@ -29,7 +29,7 @@ Vercel-only behavior in `public/vercel.json` (cleanUrls, trailing slashes, the `
 
 Colors are CSS custom properties on `:root` (`--bg`, `--ink`, `--muted`, `--line`, `--card`, `--accent` = `#ff5a1f`). Dark values are defined twice and must stay in sync: under `@media (prefers-color-scheme:dark){:root:not([data-theme=light])}` and under `:root[data-theme=dark]`. `theme.js` toggles `data-theme` and stores it as `s3-theme` in localStorage. `<meta name="theme-color">` in the head partial mirrors `--bg`.
 
-Each app has a palette class (`.p-fl`, `.p-s5`, `.p-fold`, `.p-plonk`) setting `--pa/--pb/--pt`; used by homepage `.product` cards and by case-study pages (`<main class="p-…">` + `.case-hero`). Scope card-only rules to `.product.p-…` so they don't leak into case pages.
+Each app has a palette class (`.p-fl`, `.p-s5`, `.p-fold`, `.p-plonk`) setting `--pa/--pb/--pt`; used by homepage `.product` cards and by app pages (`<main class="p-…">` + `.case-hero`). Scope card-only rules to `.product.p-…` so they don't leak into case pages.
 
 The brand motif is the tilted, offset orange "3" (`--tilt:-10deg`, `.mark .three`); it carries across pages via a CSS view transition. "Slipped" elements reuse `--accent`. Fonts are self-hosted Latin subsets in `public/fonts/` (licenses in `LICENSES.md`).
 
@@ -44,11 +44,11 @@ The About page bio paragraphs are locked copy; don't reword them.
 - `raw/` holds sources (not deployed). `node scripts/images.mjs` makes `public/img/<source>-<width>.webp` for the sources listed in its `JOBS` table (needs `cwebp`). `/img/` is cached immutably for a year, so **give a changed image a new filename instead of overwriting it.** Older single-size images (`fl-shot1.webp`, icons) predate the script.
 - Latest store art lives outside the repo in `~/App Resources/<App>/screenshots/` (Plonk: `iphone-6.3`; Formation Lab: `store-v2/iphone61`; Starting 5: `store-v2/leather/iphone61`). Copy into `raw/` as JPG, then run the image script.
 - `public/media/` holds the web-encoded Plonk trailer (ffmpeg, 444px wide, no audio) and its poster.
-- OG cards: `og-src/*.html` layouts rendered with `scripts/render-og.swift` (usage in its header) to `public/og/*.png`. Case studies and journal posts each point at a card; `og-src/wordmark-*.html` render the press-kit logos at 1600×800.
+- OG cards: `og-src/*.html` layouts rendered with `scripts/render-og.swift` (usage in its header) to `public/og/*.png`. App pages and journal posts each point at a card; `og-src/wordmark-*.html` render the press-kit logos at 1600×800.
 - Press kit: `scripts/press-kit.sh` builds `public/press/slip3-studios-press-kit.zip` from `raw/`, `press/README.txt` and the rendered wordmarks. Update the size in the download button on `/press/` when it changes.
 
 ## Content rules
 
-Facts on case studies (launch dates, versions, ratings, pipeline details) come from the app repos in `~/Development` (`Juke` = Formation Lab, `the-starting-five`, `TheFold`, `godot-games/plonk-ios`) and the public iTunes lookup API. Don't invent metrics, testimonials or claims; update the facts when an app ships a release. When adding or renaming an app, update the homepage cards, ticker and fan, its case-study page, the footer partial, `/about/`, `/press/` (page and kit), the OG cards in `og-src/`, and the README.
+Facts on app pages (launch dates, versions, ratings, pipeline details) come from the app repos in `~/Development` (`Juke` = Formation Lab, `the-starting-five`, `TheFold`, `godot-games/plonk-ios`) and the public iTunes lookup API. Don't invent metrics, testimonials or claims; update the facts when an app ships a release. When adding or renaming an app, update the homepage cards, ticker and fan, its app page, the footer partial, `/about/`, `/press/` (page and kit), the OG cards in `og-src/`, and the README.
 
 Commit subjects are one plain imperative sentence, often with a short body saying what changed and what was deliberately left alone.
