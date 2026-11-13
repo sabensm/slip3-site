@@ -52,13 +52,13 @@
     <header class="post-head">
       <p class="post-meta"><time datetime="2026-11-13">November 13, 2026</time> · <a href="/plonk/">Plonk</a></p>
       <h1>Every frame is the real game.</h1>
-      <p class="lede">Plonk’s App Store screenshots and preview video were rendered by the game itself. Here’s how, and why it was worth the trouble.</p>
+      <p class="lede">Plonk’s App Store screenshots and preview video were rendered by the game itself.</p>
     </header>
     <div class="prose">
       <p>Store art for games usually starts as a mock-up: a screen arranged by hand, pieces placed where they look best, a score that was never earned. It looks great and promises a game that doesn’t quite exist. For Plonk, the rule was the opposite. Every screen in the App Store listing had to be the game as it ships.</p>
 
       <h2>A store studio inside the game</h2>
-      <p>Plonk is built in Godot, so the store art is built in Godot too. A small “store studio” loads the real game scene inside a viewport sized to each device: 1206×2622 for the 6.3-inch iPhone, 1320×2868 for the 6.9-inch, and 2064×2752 for the 13-inch iPad, each with that device’s own safe-area insets. The iPad frames are real iPad layouts, not stretched phone shots.</p>
+      <p>Plonk is built in Godot, so the store art is built in Godot too. A small “store studio” loads the real game scene inside a viewport sized to each device: 1206×2622 for the 6.3-inch iPhone, 1320×2868 for the 6.9-inch, and 2064×2752 for the 13-inch iPad, each with that device’s own safe-area insets. The iPad frames use the game’s real iPad layout.</p>
       <p>Around that live screen, the studio draws the frame: a sherbet-colored backdrop, the set’s name on the same tag pill the game uses, and a headline set in SF Pro Rounded Heavy, the game’s own HUD face. One word in each headline becomes a clay sticker. The lines are written the way the game sounds: “Drop a piece… <em>plonk!</em>”</p>
       <figure class="pair">
         <img src="/img/plonk-01-critters-drop-540.webp" width="540" height="1174" alt="Critters frame: Drop a piece… plonk!" loading="lazy">
@@ -70,11 +70,10 @@
       <p>Finding a good take meant searching random seeds until one hit the take’s goal, like a chain that ends in a watermelon, then recording that seed. The same seed reproduces the same take, frame for frame.</p>
 
       <h2>Even the pieces around the frames are real</h2>
-      <p>The pieces tumbling across the seams between screenshots aren’t illustrations. They’re drawn by the game’s own piece renderer, using the same art the player sees. The first three frames form one wide panorama, lemon to berry to sky, so the strip in App Store search results reads as a single picture.</p>
+      <p>The pieces tumbling across the seams between screenshots are drawn by the game’s own piece renderer, using the same art the player sees. The first three frames form one wide panorama, lemon to berry to sky, so the strip in App Store search results reads as a single picture.</p>
 
-      <h2>Why bother</h2>
-      <blockquote>A screenshot is a promise. If it’s the real game, the promise is easy to keep.</blockquote>
-      <p>It also keeps the art honest over time. When the game changes, the store art is re-rendered from the new build rather than repainted by hand. The same tooling produced the screenshots on <a href="/plonk/">Plonk’s page</a> and the social cuts for launch.</p>
+      <h2>After launch</h2>
+      <p>When the game changes, the store art is re-rendered from the new build rather than repainted by hand. The same tooling produced the screenshots on <a href="/plonk/">Plonk’s page</a> and the social cuts for launch.</p>
     </div>
     <footer class="post-foot">
       <a href="/journal/">← All posts</a>
