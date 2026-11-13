@@ -6,7 +6,7 @@ Slip3 Studios is an independent studio that designs, builds and ships apps for
 iPhone, iPad and the web. Founded by Mike Sabens, the studio makes Formation Lab,
 a play designer for youth flag football coaches; The Starting 5, a daily NBA
 trivia game; The Fold, a private recipe vault for families; and Plonk, a physics
-merge puzzle coming soon to iPhone.
+merge puzzle for iPhone.
 
 CONTENTS
 logos/        Slip3 wordmark on light and dark, and the "3" mark (SVG and PNG)
