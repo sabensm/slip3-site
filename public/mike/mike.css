@@ -53,3 +53,6 @@ h1 em{color:var(--hi)}
 .reel>*:nth-child(even){transform:translateY(1.5rem)}
 .reel .phone{background:#111;padding:4px;border-radius:18px}.reel .phone img{border-radius:14px}
 @media (max-width:700px){.reel{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(-1*clamp(1.2rem,5vw,3rem));padding-inline:clamp(1.2rem,5vw,3rem)}.reel>*{flex:0 0 42vw;scroll-snap-align:start}}
+.foot{flex-direction:column;justify-content:flex-start;align-items:stretch;gap:.85rem}
+.foot-main{display:flex;justify-content:space-between;align-items:baseline;gap:1rem}
+.legal-line{margin:0}
