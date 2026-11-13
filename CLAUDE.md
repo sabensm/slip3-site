@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-Hand-written static site for Slip3 Studios (an independent app studio) plus Mike Sabens' personal page. Deployed on Vercel with `public/` as the deploy root and no build step on Vercel: everything in `public/` is committed, including the output of the scripts below. No package.json; scripts are plain Node (no dependencies).
+Hand-written static site for Slip3 Studios, an independent app studio. Deployed on Vercel with `public/` as the deploy root and no build step on Vercel: everything in `public/` is committed, including the output of the scripts below. No package.json; scripts are plain Node (no dependencies).
 
 ```bash
 node scripts/build.mjs          # sync partials, journal list, RSS feed, sitemap into public/
@@ -16,15 +16,14 @@ python3 -m http.server 8000 -d public                 # local preview (`site` in
 
 **After editing any page, partial or journal post, run `node scripts/build.mjs`.** CI (`.github/workflows/site.yml`) runs the check mode, the link checker, html-validate and Lighthouse with budgets in `lighthouserc.json`.
 
-Vercel-only behavior in `public/vercel.json` (cleanUrls, trailing slashes, the `/contact` and `slip3-site.vercel.app` redirects, immutable caching for `/img/`, `/fonts/`, `/media/`) won't apply under a plain static server. Vercel Web Analytics is loaded only on the `slip3studios.com` host.
+Vercel-only behavior in `public/vercel.json` (cleanUrls, trailing slashes, the `slip3-site.vercel.app` redirect, immutable caching for `/img/`, `/fonts/`, `/media/`) won't apply under a plain static server. Vercel Web Analytics is loaded only on the `slip3studios.com` host.
 
 ## How pages are put together
 
 - **Partials** (`partials/head.html`, `header.html`, `footer.html`) are copied into every studio page between `<!-- partial:NAME -->` / `<!-- /partial:NAME -->` markers by `build.mjs`. Edit the partial, never the copy in a page. The build sets `aria-current="page"` on partial links matching the page's route and fills `{{year}}`. Page-specific head tags (title, description, canonical, OG, JSON-LD, preloads) sit above the head partial.
 - **New page:** copy an existing one (e.g. `public/press/index.html`), keep the markers empty, give it an absolute `canonical`/`og:url`/`og:image` on `https://slip3studios.com`, then run the build. The sitemap picks it up from its canonical (pages with `noindex` are skipped).
 - **Journal posts** live in `public/journal/<slug>/index.html`. The build reads `og:title`, `description`, `article:published_time` and `article:section` from each post to generate the list between `<!-- generated:journal-list -->` markers (on `/` and `/journal/`) and `public/journal/feed.xml`.
-- **`/mike/`** is self-contained: its own `mike.css`, fonts (Instrument Serif + JetBrains Mono), favicon and system-only dark mode. No partials.
-- **`/contact/`** is a stub redirecting to `/about/`. `public/404.html` is Vercel's not-found page.
+- **`/about/`** covers the studio and its founder (there is no separate personal page). **`/contact/`** is the single contact page for every Slip3 game: support, privacy requests and press, all at slip3studios@gmail.com. Each game keeps its own privacy and terms pages (e.g. `/plonk/privacy/`); Formation Lab and The Starting 5 have their own sites and support pages, linked from `/contact/`. `public/404.html` is Vercel's not-found page.
 
 ## Design system (studio.css)
 
@@ -50,6 +49,6 @@ The About page bio paragraphs are locked copy; don't reword them.
 
 ## Content rules
 
-Facts on case studies (launch dates, versions, ratings, pipeline details) come from the app repos in `~/Development` (`Juke` = Formation Lab, `the-starting-five`, `TheFold`, `godot-games/plonk-ios`) and the public iTunes lookup API. Don't invent metrics, testimonials or claims; update the facts when an app ships a release. When adding or renaming an app, update the homepage cards, ticker and fan, its case-study page, the footer partial, `/mike/`, `/press/` (page and kit), the OG cards in `og-src/`, and the README.
+Facts on case studies (launch dates, versions, ratings, pipeline details) come from the app repos in `~/Development` (`Juke` = Formation Lab, `the-starting-five`, `TheFold`, `godot-games/plonk-ios`) and the public iTunes lookup API. Don't invent metrics, testimonials or claims; update the facts when an app ships a release. When adding or renaming an app, update the homepage cards, ticker and fan, its case-study page, the footer partial, `/about/`, `/press/` (page and kit), the OG cards in `og-src/`, and the README.
 
 Commit subjects are one plain imperative sentence, often with a short body saying what changed and what was deliberately left alone.

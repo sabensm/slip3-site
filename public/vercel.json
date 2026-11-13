@@ -2,9 +2,7 @@
   "cleanUrls": true,
   "trailingSlash": true,
   "redirects": [
-    { "source": "/(.*)", "has": [{ "type": "host", "value": "slip3-site.vercel.app" }], "destination": "https://slip3studios.com/$1", "permanent": true},
-    { "source": "/contact", "destination": "/about/", "permanent": true},
-    { "source": "/contact/", "destination": "/about/", "permanent": true}
+    { "source": "/(.*)", "has": [{ "type": "host", "value": "slip3-site.vercel.app" }], "destination": "https://slip3studios.com/$1", "permanent": true}
   ],
   "headers": [
     {"source": "/img/(.*)", "headers": [{"key": "Cache-Control", "value": "public, max-age=31536000, immutable"}]},
