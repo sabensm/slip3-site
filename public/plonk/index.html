@@ -4,9 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Plonk: Merge Puzzle — Slip3 Studios</title>
-<meta name="description" content="Drop, match, stack and grow. Plonk is a physics merge puzzle for iPhone — Critters, Orchard, and League — in development at Slip3 Studios.">
-<meta name="theme-color" content="#f3efe6" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0e0d0c" media="(prefers-color-scheme: dark)">
+<meta name="description" content="Drop, match, stack and grow. Plonk is a physics merge puzzle for iPhone with themed sets — Critters, Orchard and League — coming soon from Slip3 Studios.">
 <link rel="canonical" href="https://slip3studios.com/plonk/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://slip3studios.com/plonk/">
@@ -23,27 +21,35 @@
 <meta name="twitter:description" content="Drop, match, stack and grow. A physics merge puzzle for iPhone, coming soon from Slip3 Studios.">
 <meta name="twitter:image" content="https://slip3studios.com/og/plonk.png">
 <meta name="twitter:image:alt" content="Plonk app icon: a brown P on a coral ground, with a cream and teal oval">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Plonk: Merge Puzzle","url":"https://slip3studios.com/plonk/","description":"A physics drop-and-merge puzzle for iPhone with themed piece sets.","gamePlatform":"iPhone","genre":"Puzzle","image":"https://slip3studios.com/img/plonk-icon.webp","author":{"@type":"Organization","name":"Slip3 Studios","url":"https://slip3studios.com/"}}</script>
+<!-- partial:head -->
+<meta name="theme-color" content="#f3efe6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e0d0c" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.webmanifest">
-<link rel="preload" as="image" href="/img/plonk-icon.webp" type="image/webp">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap" rel="stylesheet">
+<link rel="alternate" type="application/rss+xml" title="Slip3 Studios Journal" href="/journal/feed.xml">
+<link rel="preload" href="/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/studio.css">
 <script>try{var t=localStorage.getItem('s3-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script src="/theme.js" defer></script>
+<script>if(location.hostname==='slip3studios.com'){var s=document.createElement('script');s.src='/_vercel/insights/script.js';s.defer=true;document.head.appendChild(s)}</script>
+<!-- /partial:head -->
 </head>
 <body>
 <a class="skip" href="#content">Skip to content</a>
 
+<!-- partial:header -->
 <header class="top">
   <a class="mark" href="/" aria-label="Slip3 Studios home"><span>slip</span><span class="three" aria-hidden="true">3</span></a>
   <nav aria-label="Primary">
     <a href="/#work">Work</a>
-    <a href="/#studio">Studio</a>
+    <a href="/journal/">Journal</a>
     <a href="/about/">About</a>
     <button class="theme" type="button" aria-label="Toggle dark mode"><span aria-hidden="true">◐</span></button>
   </nav>
 </header>
+<!-- /partial:header -->
 
 <main class="plonk" id="content">
   <section class="plonk-hero" aria-labelledby="plonk-title">
@@ -54,16 +60,19 @@
       </div>
       <h1 id="plonk-title">Plonk: Merge Puzzle</h1>
       <p class="plonk-sub">Drop, Match, Stack &amp; Grow</p>
-      <p class="plonk-pitch">Drop, match, stack &amp; grow. A physics merge puzzle where matching pieces combine into bigger ones, stacked up in a bin that keeps filling.</p>
-      <p class="plonk-chips"><span>In development</span><span>iPhone</span></p>
-      <nav class="legal-nav" aria-label="Plonk documents">
-        <a href="/plonk/privacy/">Privacy Policy</a>
-        <span class="sep" aria-hidden="true">·</span>
-        <a href="/plonk/terms/">Terms &amp; Conditions</a>
-      </nav>
+      <p class="plonk-pitch">Drop a piece, match it with its twin, and watch the two combine into something bigger. A cozy physics puzzle for a relaxing minute, or a long chase for a new best.</p>
+      <div class="hero-cta plonk-cta">
+        <a class="btn" href="#try-title">Play a quick round</a>
+        <a class="btn ghost" href="#shots-title">See the App Store art</a>
+      </div>
+      <p class="plonk-chips"><span>iPhone</span><span>Game Center leaderboards</span><span>iCloud stats sync</span></p>
     </div>
     <div class="plonk-hero-media">
-      <img class="plonk-icon" src="/img/plonk-icon.webp" alt="Plonk app icon" width="1024" height="1024">
+      <figure class="trailer" data-trailer>
+        <video src="/media/plonk-preview-444.mp4" poster="/media/plonk-preview-poster-444.webp" width="444" height="960" muted loop playsinline preload="metadata"></video>
+        <button class="trailer-btn" type="button" aria-pressed="false">Play trailer</button>
+        <figcaption class="visually-hidden">Plonk gameplay trailer: pieces drop, merge into bigger pieces and chain into combos.</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -71,56 +80,92 @@
     <h2 id="play-title" class="section-title"><span>01</span> How a round goes</h2>
     <ol class="plonk-feats">
       <li>
-        <h3>Real physics.</h3>
-        <p>Pieces fall, roll and settle; every drop changes the pile.</p>
-      </li>
-      <li>
-        <h3>Themed sets.</h3>
-        <p>Critters, Orchard, and League — three ladders of pieces.</p>
-      </li>
-      <li>
         <h3>Aim and drop.</h3>
-        <p>See what’s next, line it up, let go.</p>
+        <p>Move to aim, tap to drop. The Next preview shows what’s coming, so every drop is a plan.</p>
+      </li>
+      <li>
+        <h3>Match and grow.</h3>
+        <p>Two matching pieces combine into the next, bigger piece. Merge back to back to build combos.</p>
+      </li>
+      <li>
+        <h3>Real physics.</h3>
+        <p>Pieces fall, roll and settle. Every drop changes the pile, and the bin keeps filling.</p>
       </li>
     </ol>
-    <p class="plonk-more">Matches can chain into a combo. When a run ends, the sheet shows your score, biggest piece, merges, drops, and time — a record to beat. Then pick a set and drop again.</p>
+    <p class="plonk-more">Every set has its own ladder of pieces. Critters runs from a ladybug all the way up to an elephant, Orchard from a blueberry to a watermelon, and League from a golf ball to a beach ball. Seasonal sets join for the holidays, starting with a Thanksgiving harvest.</p>
+  </section>
+
+  <section class="plonk-block" aria-labelledby="try-title">
+    <h2 id="try-title" class="section-title"><span>02</span> Try it here</h2>
+    <div class="demo" data-demo="plonk">
+      <div>
+        <div class="toy-hud"><span>Score <b data-score>0</b></span><span>Next <img data-next src="/img/plonk-critter-0-160.webp" alt="Next: Ladybug" width="30" height="30"></span></div>
+        <div class="toy" tabindex="0" role="application" aria-label="Plonk sample bin. Move the pointer or use the arrow keys to aim; click, tap, Space or Enter to drop.">
+          <canvas width="360" height="480"></canvas>
+        </div>
+        <p class="visually-hidden" aria-live="polite"></p>
+      </div>
+      <div class="demo-copy">
+        <h3>A pocket-sized Critters bin.</h3>
+        <p>Aim with your pointer or the arrow keys, then click, tap or press Space to drop. Match two of a kind to grow them, and keep the pile below the dashed line.</p>
+        <button class="btn" type="button" data-reset hidden>One more go</button>
+        <p class="demo-note">A simplified browser sketch with the game’s real Critters art. The iPhone game has the full physics, sound and every set.</p>
+      </div>
+    </div>
   </section>
 
   <section class="plonk-block plonk-shots" aria-labelledby="shots-title">
-    <h2 id="shots-title" class="section-title"><span>02</span> The shots</h2>
+    <h2 id="shots-title" class="section-title"><span>03</span> In the App Store</h2>
+    <p class="sec-intro">Every screen in these frames is the real game, rendered by the game itself. <a href="/journal/plonk-store-art-is-real-gameplay/">How the store art was made →</a></p>
     <div class="plonk-gallery">
       <figure>
-        <img src="/img/plonk-01-critters-drop.webp" width="1080" height="2347" alt="Critters marketing frame. Headline: Drop a piece… plonk! A fox is the next piece above a bin of animal faces." loading="lazy">
+        <img src="/img/plonk-01-critters-drop-540.webp" srcset="/img/plonk-01-critters-drop-540.webp 540w, /img/plonk-01-critters-drop-1080.webp 1080w" sizes="(max-width: 560px) 90vw, (max-width: 980px) 45vw, 400px" width="540" height="1174" alt="Critters frame. Headline: Drop a piece… plonk! A fox has just dropped on the aim line above a bin of animal pieces." loading="lazy">
         <figcaption><b>Critters.</b> Drop a piece… plonk!</figcaption>
       </figure>
       <figure>
-        <img src="/img/plonk-02-orchard-match.webp" width="1080" height="2347" alt="Orchard marketing frame. Headline: Match its twin… pop! Fruit pieces in the bin, including a pineapple and pears, with combo marks above them." loading="lazy">
+        <img src="/img/plonk-02-orchard-match-540.webp" srcset="/img/plonk-02-orchard-match-540.webp 540w, /img/plonk-02-orchard-match-1080.webp 1080w" sizes="(max-width: 560px) 90vw, (max-width: 980px) 45vw, 400px" width="540" height="1174" alt="Orchard frame. Headline: Match its twin… pop! A chain of fruit merges with a times four combo." loading="lazy">
         <figcaption><b>Orchard.</b> Match its twin… pop!</figcaption>
       </figure>
       <figure>
-        <img src="/img/plonk-03-league-grow.webp" width="1080" height="2347" alt="League marketing frame. Headline: …and watch it grow! A bowling ball above footballs and other balls, with a score of +1,024." loading="lazy">
+        <img src="/img/plonk-03-league-grow-540.webp" srcset="/img/plonk-03-league-grow-540.webp 540w, /img/plonk-03-league-grow-1080.webp 1080w" sizes="(max-width: 560px) 90vw, (max-width: 980px) 45vw, 400px" width="540" height="1174" alt="League frame. Headline: …and watch it grow! Two footballs merge into a bowling ball." loading="lazy">
         <figcaption><b>League.</b> …and watch it grow!</figcaption>
       </figure>
       <figure>
-        <img src="/img/plonk-04-critters-combo.webp" width="1080" height="2347" alt="Critters marketing frame. Headline: Pop, pop, combo! A panda in a burst of confetti with combo multipliers, animal pieces stacked below." loading="lazy">
+        <img src="/img/plonk-04-critters-combo-540.webp" srcset="/img/plonk-04-critters-combo-540.webp 540w, /img/plonk-04-critters-combo-1080.webp 1080w" sizes="(max-width: 560px) 90vw, (max-width: 980px) 45vw, 400px" width="540" height="1174" alt="Critters frame. Headline: Pop, pop, combo! A times seven combo shower over the animal pieces." loading="lazy">
         <figcaption><b>Critters.</b> Pop, pop, combo!</figcaption>
       </figure>
       <figure>
-        <img src="/img/plonk-05-orchard-watermelon.webp" width="1080" height="2347" alt="Orchard marketing frame. Headline: From blueberry to watermelon! A melon, pineapple, and peaches in the bin, with a watermelon at the end of the ladder." loading="lazy">
+        <img src="/img/plonk-05-orchard-watermelon-540.webp" srcset="/img/plonk-05-orchard-watermelon-540.webp 540w, /img/plonk-05-orchard-watermelon-1080.webp 1080w" sizes="(max-width: 560px) 90vw, (max-width: 980px) 45vw, 400px" width="540" height="1174" alt="Orchard frame. Headline: From blueberry to watermelon! The piece ladder with the watermelon at the top." loading="lazy">
         <figcaption><b>Orchard.</b> From blueberry to watermelon!</figcaption>
       </figure>
       <figure>
-        <img src="/img/plonk-06-league-close.webp" width="1080" height="2347" alt="League marketing frame. Headline: So close… one more go! The bin is crowded with balls around a bowling ball." loading="lazy">
+        <img src="/img/plonk-06-league-close-540.webp" srcset="/img/plonk-06-league-close-540.webp 540w, /img/plonk-06-league-close-1080.webp 1080w" sizes="(max-width: 560px) 90vw, (max-width: 980px) 45vw, 400px" width="540" height="1174" alt="League frame. Headline: So close… one more go! The bin is packed to the danger line." loading="lazy">
         <figcaption><b>League.</b> So close… one more go!</figcaption>
       </figure>
       <figure>
-        <img src="/img/plonk-07-critters-best.webp" width="1080" height="2347" alt="Critters marketing frame. Headline: Beat your best! An end-of-run sheet with a new Critters best, the biggest piece, and combo, merges, drops, and time." loading="lazy">
+        <img src="/img/plonk-07-critters-best-540.webp" srcset="/img/plonk-07-critters-best-540.webp 540w, /img/plonk-07-critters-best-1080.webp 1080w" sizes="(max-width: 560px) 90vw, (max-width: 980px) 45vw, 400px" width="540" height="1174" alt="Critters frame. Headline: Beat your best! A new best results card with confetti." loading="lazy">
         <figcaption><b>Critters.</b> Beat your best!</figcaption>
       </figure>
       <figure>
-        <img src="/img/plonk-08-pick-a-set.webp" width="1080" height="2347" alt="Marketing frame. Headline: Pick a set, any set! The set picker with Critters selected, and records for best score, best combo, and most merges." loading="lazy">
-        <figcaption>Pick a set, any set!</figcaption>
+        <img src="/img/plonk-08-pick-a-set-540.webp" srcset="/img/plonk-08-pick-a-set-540.webp 540w, /img/plonk-08-pick-a-set-1080.webp 1080w" sizes="(max-width: 560px) 90vw, (max-width: 980px) 45vw, 400px" width="540" height="1174" alt="Home frame. Headline: Pick a set, any set! The set carousel with Critters selected and the player's records." loading="lazy">
+        <figcaption><b>Home.</b> Pick a set, any set!</figcaption>
       </figure>
+    </div>
+  </section>
+
+  <section class="plonk-block" aria-labelledby="built-title">
+    <h2 id="built-title" class="section-title"><span>04</span> How it’s built</h2>
+    <div class="built">
+      <div>
+        <p>Plonk is built in the Godot engine and ships as a native iPhone game. Best scores go to Game Center leaderboards, and stats sync across devices with iCloud.</p>
+        <p>The App Store screenshots and preview video come from the shipping game. A store studio runs the real game at each device’s size, and a scripted player makes only drops a real player could make.</p>
+      </div>
+      <dl class="stack-list">
+        <dt>Engine</dt><dd>Godot 4</dd>
+        <dt>Platform</dt><dd>iPhone</dd>
+        <dt>Services</dt><dd>Game Center · iCloud</dd>
+        <dt>Music</dt><dd>Composed in code for the game</dd>
+      </dl>
     </div>
     <nav class="legal-nav plonk-docs" aria-label="Plonk documents">
       <a href="/plonk/privacy/">Privacy Policy</a>
@@ -128,20 +173,23 @@
       <a href="/plonk/terms/">Terms &amp; Conditions</a>
     </nav>
   </section>
+
+  <a class="next-case" href="/formation-lab/"><span>Next case study</span><b>Formation Lab →</b></a>
 </main>
 
+<!-- partial:footer -->
 <footer class="foot">
   <a class="mark small" href="/" aria-label="Slip3 Studios home"><span>slip</span><span class="three" aria-hidden="true">3</span></a>
-  <p>Independent apps for iPhone and the web.</p>
-  <ul>
-    <li><a href="https://formationlab.app/" rel="noopener">Formation Lab</a></li>
-    <li><a href="https://www.starting5trivia.com/" rel="noopener">Starting 5</a></li>
-    <li><a href="https://apps.apple.com/us/app/the-fold-recipe-manager/id6758029693" rel="noopener">The Fold</a></li>
-    <li><a href="/plonk/">Plonk</a></li>
-    <li><a href="/about/">About</a></li>
+  <p>An independent app studio for iPhone, iPad and the web.</p>
+  <ul aria-label="Apps">
+    <li><a href="/formation-lab/">Formation Lab</a></li>
+    <li><a href="/starting-5/">Starting 5</a></li>
+    <li><a href="/the-fold/">The Fold</a></li>
+    <li><a href="/plonk/" aria-current="page">Plonk</a></li>
   </ul>
-  <p class="fine">© 2026 Slip3 Studios. App Store is a service mark of Apple Inc.<span class="doc-links"><a href="/plonk/privacy/">Plonk Privacy</a> · <a href="/plonk/terms/">Plonk Terms</a></span></p>
+  <p class="fine"><span class="foot-links"><a href="/about/">About</a> · <a href="/journal/">Journal</a> · <a href="/press/">Press</a> · <a href="/privacy/">Privacy</a> · <a href="mailto:slip3studios@gmail.com">slip3studios@gmail.com</a> · <a href="/journal/feed.xml">RSS</a></span><span class="doc-links">© 2026 Slip3 Studios. App Store is a service mark of Apple Inc. · <a href="/plonk/privacy/">Plonk Privacy</a> · <a href="/plonk/terms/">Plonk Terms</a></span></p>
 </footer>
-<script src="/theme.js" defer></script>
+<!-- /partial:footer -->
+<script src="/demos.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Fold — Slip3 Studios</title>
+<meta name="description" content="How Slip3 Studios built The Fold, a private recipe vault for families: invite-only groups, scanned recipe cards and a hands-free Cook Mode, native on iPhone, iPad and Mac.">
+<link rel="canonical" href="https://slip3studios.com/the-fold/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://slip3studios.com/the-fold/">
+<meta property="og:site_name" content="Slip3 Studios">
+<meta property="og:title" content="The Fold — a Slip3 Studios case study">
+<meta property="og:description" content="A private recipe vault for families. Share recipes in invite-only groups, not with the internet.">
+<meta property="og:image" content="https://slip3studios.com/og/the-fold.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Fold app icon and recipe library">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"MobileApplication","name":"The Fold - Recipe Manager","alternateName":"The Fold","url":"https://slip3studios.com/the-fold/","sameAs":["https://apps.apple.com/us/app/the-fold-recipe-manager/id6758029693"],"applicationCategory":"LifestyleApplication","operatingSystem":"iOS, iPadOS, macOS","datePublished":"2026-03-02","softwareVersion":"1.3","image":"https://slip3studios.com/img/fold-icon.webp","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"Slip3 Studios","url":"https://slip3studios.com/"}}</script>
+<!-- partial:head -->
+<meta name="theme-color" content="#f3efe6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e0d0c" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="alternate" type="application/rss+xml" title="Slip3 Studios Journal" href="/journal/feed.xml">
+<link rel="preload" href="/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/studio.css">
+<script>try{var t=localStorage.getItem('s3-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script src="/theme.js" defer></script>
+<script>if(location.hostname==='slip3studios.com'){var s=document.createElement('script');s.src='/_vercel/insights/script.js';s.defer=true;document.head.appendChild(s)}</script>
+<!-- /partial:head -->
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+
+<!-- partial:header -->
+<header class="top">
+  <a class="mark" href="/" aria-label="Slip3 Studios home"><span>slip</span><span class="three" aria-hidden="true">3</span></a>
+  <nav aria-label="Primary">
+    <a href="/#work">Work</a>
+    <a href="/journal/">Journal</a>
+    <a href="/about/">About</a>
+    <button class="theme" type="button" aria-label="Toggle dark mode"><span aria-hidden="true">◐</span></button>
+  </nav>
+</header>
+<!-- /partial:header -->
+
+<main id="content" class="p-fold">
+  <div class="case-top">
+    <section class="case-hero" aria-labelledby="case-title">
+      <div>
+        <div class="p-head">
+          <img class="icon" src="/img/fold-icon.webp" alt="The Fold app icon" width="96" height="96">
+          <div>
+            <p class="kicker">Case study · Food &amp; drink</p>
+            <h1 id="case-title">The Fold</h1>
+          </div>
+        </div>
+        <p class="case-pitch">A private recipe vault for families. Keep the recipes that matter, and share them only with the people you invite.</p>
+        <div class="hero-cta">
+          <a class="btn" href="https://apps.apple.com/us/app/the-fold-recipe-manager/id6758029693" rel="noopener">App Store ↗</a>
+        </div>
+        <dl class="facts">
+          <div><dt>Launched</dt><dd>March 2026</dd></div>
+          <div><dt>Latest release</dt><dd>v1.3</dd></div>
+          <div><dt>Platforms</dt><dd>iPhone · iPad · Mac</dd></div>
+          <div><dt>Price</dt><dd>Free</dd></div>
+        </dl>
+      </div>
+      <div class="case-media">
+        <img src="/img/fold-shot1.webp" alt="The Fold: your recipes, beautifully organized" width="270" height="584" fetchpriority="high">
+      </div>
+    </section>
+  </div>
+
+  <section class="sec" aria-labelledby="brief-title">
+    <h2 id="brief-title" class="section-title"><span>01</span> The brief</h2>
+    <div class="brief">
+      <p class="lead">Family recipes live on index cards, in group texts and in bookmarks that disappear. Most recipe apps fix that by publishing everything.</p>
+      <div>
+        <p>The Fold starts from the opposite assumption: a grandmother’s recipe card is not content. It belongs to the family, and the app should treat it that way.</p>
+        <p>So the core of the app is the group: a private vault that only invited members can see. Everything else, from scanning to cooking, is there to get recipes into that vault and onto the stove.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="decisions-title">
+    <h2 id="decisions-title" class="section-title"><span>02</span> Key decisions</h2>
+    <ol class="decisions">
+      <li><h3>Private by design.</h3><p>Groups are invite-only recipe vaults. Family and friends join with an invite code, and nothing is shared beyond the group.</p></li>
+      <li><h3>Bring the box of cards.</h3><p>Scan handwritten recipe cards into searchable recipes, and save from any site with one-tap web import from the share sheet.</p></li>
+      <li><h3>Made for the kitchen.</h3><p>Cook Mode sets bigger text, keeps the screen on, and steps through the recipe by voice, so nobody has to touch the screen with flour on their hands.</p></li>
+      <li><h3>Warm, not clinical.</h3><p>The design brief was “the digital kitchen table”: an oatmeal background, serif headings, terracotta accents and soft recipe cards instead of default lists.</p></li>
+    </ol>
+  </section>
+
+  <section class="sec" aria-labelledby="store-title">
+    <h2 id="store-title" class="section-title"><span>03</span> In the App Store</h2>
+    <div class="strip" role="list" aria-label="The Fold screenshots">
+      <figure role="listitem"><img src="/img/fold-shot1.webp" width="270" height="584" loading="lazy" alt="Your recipes, beautifully organized: the recipe library."><figcaption>Your recipes, beautifully organized</figcaption></figure>
+      <figure role="listitem"><img src="/img/fold-shot2.webp" width="270" height="584" loading="lazy" alt="Cook with confidence: a recipe detail view."><figcaption>Cook with confidence</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="built-title">
+    <h2 id="built-title" class="section-title"><span>04</span> How it’s built</h2>
+    <div class="built">
+      <div>
+        <p>The Fold is a native SwiftUI app for iPhone, iPad and Mac, written in Swift 6.2. Groups sync in real time, so a recipe saved at one kitchen table appears at the next without a refresh.</p>
+        <p>Sign in with Apple is the only account system. A share extension brings recipes in from Safari and other apps without opening The Fold first.</p>
+      </div>
+      <dl class="stack-list">
+        <dt>App</dt><dd>Swift 6.2 · SwiftUI</dd>
+        <dt>Platforms</dt><dd>iOS 26 · iPadOS 26 · macOS 26</dd>
+        <dt>Backend</dt><dd>Convex, real-time sync</dd>
+        <dt>Sign-in</dt><dd>Sign in with Apple</dd>
+        <dt>Tests</dt><dd>Swift Testing</dd>
+      </dl>
+    </div>
+  </section>
+
+  <a class="next-case" href="/plonk/"><span>Next</span><b>Plonk →</b></a>
+</main>
+
+<!-- partial:footer -->
+<footer class="foot">
+  <a class="mark small" href="/" aria-label="Slip3 Studios home"><span>slip</span><span class="three" aria-hidden="true">3</span></a>
+  <p>An independent app studio for iPhone, iPad and the web.</p>
+  <ul aria-label="Apps">
+    <li><a href="/formation-lab/">Formation Lab</a></li>
+    <li><a href="/starting-5/">Starting 5</a></li>
+    <li><a href="/the-fold/" aria-current="page">The Fold</a></li>
+    <li><a href="/plonk/">Plonk</a></li>
+  </ul>
+  <p class="fine"><span class="foot-links"><a href="/about/">About</a> · <a href="/journal/">Journal</a> · <a href="/press/">Press</a> · <a href="/privacy/">Privacy</a> · <a href="mailto:slip3studios@gmail.com">slip3studios@gmail.com</a> · <a href="/journal/feed.xml">RSS</a></span><span class="doc-links">© 2026 Slip3 Studios. App Store is a service mark of Apple Inc. · <a href="/plonk/privacy/">Plonk Privacy</a> · <a href="/plonk/terms/">Plonk Terms</a></span></p>
+</footer>
+<!-- /partial:footer -->
+</body>
+</html>

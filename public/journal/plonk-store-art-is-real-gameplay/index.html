@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Every frame is the real game — Slip3 Studios</title>
+<meta name="description" content="How Plonk’s App Store screenshots and preview video were made from the shipping game, with nothing painted in.">
+<link rel="canonical" href="https://slip3studios.com/journal/plonk-store-art-is-real-gameplay/">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://slip3studios.com/journal/plonk-store-art-is-real-gameplay/">
+<meta property="og:site_name" content="Slip3 Studios">
+<meta property="og:title" content="Every frame is the real game">
+<meta property="og:description" content="How Plonk’s App Store screenshots and preview video were made from the shipping game, with nothing painted in.">
+<meta property="og:image" content="https://slip3studios.com/og/plonk.png">
+<meta property="og:image:width" content="1024"><meta property="og:image:height" content="1024">
+<meta property="og:image:alt" content="Plonk app icon">
+<meta property="article:published_time" content="2026-11-13">
+<meta property="article:section" content="Plonk">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Every frame is the real game","datePublished":"2026-11-13","url":"https://slip3studios.com/journal/plonk-store-art-is-real-gameplay/","image":"https://slip3studios.com/img/plonk-01-critters-drop-1080.webp","author":{"@type":"Person","name":"Mike Sabens","url":"https://slip3studios.com/mike/"},"publisher":{"@type":"Organization","name":"Slip3 Studios","url":"https://slip3studios.com/"}}</script>
+<!-- partial:head -->
+<meta name="theme-color" content="#f3efe6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e0d0c" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="alternate" type="application/rss+xml" title="Slip3 Studios Journal" href="/journal/feed.xml">
+<link rel="preload" href="/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/studio.css">
+<script>try{var t=localStorage.getItem('s3-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script src="/theme.js" defer></script>
+<script>if(location.hostname==='slip3studios.com'){var s=document.createElement('script');s.src='/_vercel/insights/script.js';s.defer=true;document.head.appendChild(s)}</script>
+<!-- /partial:head -->
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+
+<!-- partial:header -->
+<header class="top">
+  <a class="mark" href="/" aria-label="Slip3 Studios home"><span>slip</span><span class="three" aria-hidden="true">3</span></a>
+  <nav aria-label="Primary">
+    <a href="/#work">Work</a>
+    <a href="/journal/">Journal</a>
+    <a href="/about/">About</a>
+    <button class="theme" type="button" aria-label="Toggle dark mode"><span aria-hidden="true">◐</span></button>
+  </nav>
+</header>
+<!-- /partial:header -->
+
+<main id="content">
+  <article class="post">
+    <header class="post-head">
+      <p class="post-meta"><time datetime="2026-11-13">November 13, 2026</time> · <a href="/plonk/">Plonk</a></p>
+      <h1>Every frame is the real game.</h1>
+      <p class="lede">Plonk’s App Store screenshots and preview video were rendered by the game itself. Here’s how, and why it was worth the trouble.</p>
+    </header>
+    <div class="prose">
+      <p>Store art for games usually starts as a mock-up: a screen arranged by hand, pieces placed where they look best, a score that was never earned. It looks great and promises a game that doesn’t quite exist. For Plonk, the rule was the opposite. Every screen in the App Store listing had to be the game as it ships.</p>
+
+      <h2>A store studio inside the game</h2>
+      <p>Plonk is built in Godot, so the store art is built in Godot too. A small “store studio” loads the real game scene inside a viewport sized to each device: 1206×2622 for the 6.3-inch iPhone, 1320×2868 for the 6.9-inch, and 2064×2752 for the 13-inch iPad, each with that device’s own safe-area insets. The iPad frames are real iPad layouts, not stretched phone shots.</p>
+      <p>Around that live screen, the studio draws the frame: a sherbet-colored backdrop, the set’s name on the same tag pill the game uses, and a headline set in SF Pro Rounded Heavy, the game’s own HUD face. One word in each headline becomes a clay sticker. The lines are written the way the game sounds: “Drop a piece… <em>plonk!</em>”</p>
+      <figure class="pair">
+        <img src="/img/plonk-01-critters-drop-540.webp" width="540" height="1174" alt="Critters frame: Drop a piece… plonk!" loading="lazy">
+        <img src="/img/plonk-03-league-grow-540.webp" width="540" height="1174" alt="League frame: …and watch it grow! Two footballs become a bowling ball." loading="lazy">
+      </figure>
+
+      <h2>A scripted player, held to the rules</h2>
+      <p>The preview video needed real merges and real combos. So a scripted player drags the aim and drops pieces onto their twins. It gets no help: every piece it drops is one the game actually dealt, the Next preview always shows the true next piece, and nothing is spawned into view.</p>
+      <p>Finding a good take meant searching random seeds until one hit the take’s goal, like a chain that ends in a watermelon, then recording that seed. The same seed reproduces the same take, frame for frame.</p>
+
+      <h2>Even the pieces around the frames are real</h2>
+      <p>The pieces tumbling across the seams between screenshots aren’t illustrations. They’re drawn by the game’s own piece renderer, using the same art the player sees. The first three frames form one wide panorama, lemon to berry to sky, so the strip in App Store search results reads as a single picture.</p>
+
+      <h2>Why bother</h2>
+      <blockquote>A screenshot is a promise. If it’s the real game, the promise is easy to keep.</blockquote>
+      <p>It also keeps the art honest over time. When the game changes, the store art is re-rendered from the new build rather than repainted by hand. The same tooling produced the screenshots on <a href="/plonk/">Plonk’s page</a> and the social cuts for launch.</p>
+    </div>
+    <footer class="post-foot">
+      <a href="/journal/">← All posts</a>
+      <a href="/plonk/">Meet Plonk →</a>
+    </footer>
+  </article>
+</main>
+
+<!-- partial:footer -->
+<footer class="foot">
+  <a class="mark small" href="/" aria-label="Slip3 Studios home"><span>slip</span><span class="three" aria-hidden="true">3</span></a>
+  <p>An independent app studio for iPhone, iPad and the web.</p>
+  <ul aria-label="Apps">
+    <li><a href="/formation-lab/">Formation Lab</a></li>
+    <li><a href="/starting-5/">Starting 5</a></li>
+    <li><a href="/the-fold/">The Fold</a></li>
+    <li><a href="/plonk/">Plonk</a></li>
+  </ul>
+  <p class="fine"><span class="foot-links"><a href="/about/">About</a> · <a href="/journal/">Journal</a> · <a href="/press/">Press</a> · <a href="/privacy/">Privacy</a> · <a href="mailto:slip3studios@gmail.com">slip3studios@gmail.com</a> · <a href="/journal/feed.xml">RSS</a></span><span class="doc-links">© 2026 Slip3 Studios. App Store is a service mark of Apple Inc. · <a href="/plonk/privacy/">Plonk Privacy</a> · <a href="/plonk/terms/">Plonk Terms</a></span></p>
+</footer>
+<!-- /partial:footer -->
+</body>
+</html>

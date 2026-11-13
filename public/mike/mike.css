@@ -1,3 +1,6 @@
+@font-face{font-family:"Instrument Serif";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/instrument-serif-latin.woff2) format("woff2")}
+@font-face{font-family:"Instrument Serif";font-style:italic;font-weight:400;font-display:swap;src:url(/fonts/instrument-serif-italic-latin.woff2) format("woff2")}
+@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:400 600;font-display:swap;src:url(/fonts/jetbrains-mono-latin.woff2) format("woff2")}
 :root{--bg:#fbfaf7;--ink:#1b1c1e;--muted:#64656a;--rule:#d9d6cf;--hi:#2f55d4;--serif:"Instrument Serif",Georgia,"Times New Roman",serif;--mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;--sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:light}
 @media (prefers-color-scheme:dark){:root{--bg:#121314;--ink:#ecebe7;--muted:#9a9a9f;--rule:#2b2c2f;--hi:#8fa8ff;color-scheme:dark}}
 *{box-sizing:border-box}

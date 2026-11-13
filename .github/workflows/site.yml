@@ -1,0 +1,34 @@
+name: Site checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Partials, sitemap and feed are up to date
+        run: node scripts/build.mjs --check
+      - name: Internal links and assets resolve
+        run: node scripts/check-links.mjs
+      - name: HTML is valid
+        run: npx --yes html-validate@11.21.1 "public/**/*.html"
+
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Lighthouse (performance, accessibility, best practices, SEO budgets)
+        run: npx --yes @lhci/cli@0.16.1 autorun

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A new game every night — Slip3 Studios</title>
+<meta name="description" content="The Starting 5 builds each day’s NBA trivia game overnight with an automated pipeline. Here is how it works.">
+<link rel="canonical" href="https://slip3studios.com/journal/how-starting-5-builds-a-game/">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://slip3studios.com/journal/how-starting-5-builds-a-game/">
+<meta property="og:site_name" content="Slip3 Studios">
+<meta property="og:title" content="A new game every night">
+<meta property="og:description" content="The Starting 5 builds each day’s NBA trivia game overnight with an automated pipeline. Here is how it works.">
+<meta property="og:image" content="https://slip3studios.com/og/starting-5.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Starting 5">
+<meta property="article:published_time" content="2026-11-13">
+<meta property="article:section" content="The Starting 5">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"A new game every night","datePublished":"2026-11-13","url":"https://slip3studios.com/journal/how-starting-5-builds-a-game/","image":"https://slip3studios.com/og/starting-5.png","author":{"@type":"Person","name":"Mike Sabens","url":"https://slip3studios.com/mike/"},"publisher":{"@type":"Organization","name":"Slip3 Studios","url":"https://slip3studios.com/"}}</script>
+<!-- partial:head -->
+<meta name="theme-color" content="#f3efe6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e0d0c" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="alternate" type="application/rss+xml" title="Slip3 Studios Journal" href="/journal/feed.xml">
+<link rel="preload" href="/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/studio.css">
+<script>try{var t=localStorage.getItem('s3-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script src="/theme.js" defer></script>
+<script>if(location.hostname==='slip3studios.com'){var s=document.createElement('script');s.src='/_vercel/insights/script.js';s.defer=true;document.head.appendChild(s)}</script>
+<!-- /partial:head -->
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+
+<!-- partial:header -->
+<header class="top">
+  <a class="mark" href="/" aria-label="Slip3 Studios home"><span>slip</span><span class="three" aria-hidden="true">3</span></a>
+  <nav aria-label="Primary">
+    <a href="/#work">Work</a>
+    <a href="/journal/">Journal</a>
+    <a href="/about/">About</a>
+    <button class="theme" type="button" aria-label="Toggle dark mode"><span aria-hidden="true">◐</span></button>
+  </nav>
+</header>
+<!-- /partial:header -->
+
+<main id="content">
+  <article class="post">
+    <header class="post-head">
+      <p class="post-meta"><time datetime="2026-11-13">November 13, 2026</time> · <a href="/starting-5/">The Starting 5</a></p>
+      <h1>A new game every night.</h1>
+      <p class="lede">Every morning, The Starting 5 has a fresh NBA trivia game waiting. It’s built overnight by an automated pipeline. Here’s what happens while players sleep.</p>
+    </header>
+    <div class="prose">
+      <h2>The overnight schedule</h2>
+      <p>At midnight UTC, yesterday’s game closes and its daily champion is crowned. Two hours later, generation runs for the next game. If that run fails for any reason, a retry starts automatically at 6 AM UTC. Every game is ready well before its day begins at midnight UTC, when it goes live for everyone at once.</p>
+
+      <h2>1. Pick the five</h2>
+      <p>Each scheduled game either has its five players set in advance, or a plain-language theme, like “five former Celtics champions”, that a model turns into five specific names. Before anything else runs, every name is checked against the player database. A game is never built around a player the app doesn’t know.</p>
+
+      <h2>2. Write the scouting report</h2>
+      <p>For each of the five, the pipeline researches the player’s career with search grounded on basketball-reference.com: bio, college, draft night, teams, honors and the rest. That dossier is what the questions are written from.</p>
+
+      <h2>3. Twelve questions that tell stories</h2>
+      <p>All five dossiers go to the model with a detailed brief. The twelve questions should tell stories rather than recite stat lines, and each must have exactly one right answer among the five, so the model is told to test every question against all five players for shared teams, conferences and awards. Difficulty climbs by quarter, from casual fan to deep cut. Every player answers two or three questions, never twice in a row, and every question should be readable in two or three seconds, because the shot clock is ten.</p>
+
+      <h2>4. Check it twice</h2>
+      <p>Then come two layers of quality control: a rules check for structure, such as unused or over-used players, and a second, independent model call that reviews every question for factual accuracy and uniqueness. If either fails, all twelve questions are regenerated, up to three attempts. If all three fail, the game is flagged for human review instead of being published broken.</p>
+
+      <h2>5. Done before breakfast</h2>
+      <p>When the game is ready, an alert goes out. The same game then goes live on the web and in the iPhone app, which share one real-time backend, so the leaderboard, careers and streaks match everywhere.</p>
+
+      <p>The result is a daily game that never misses a day and still feels hand-picked. Try a <a href="/starting-5/#try-title">one-minute sample</a>, or <a href="https://www.starting5trivia.com/" rel="noopener">play today’s real game</a>.</p>
+    </div>
+    <footer class="post-foot">
+      <a href="/journal/">← All posts</a>
+      <a href="/starting-5/">The Starting 5 case study →</a>
+    </footer>
+  </article>
+</main>
+
+<!-- partial:footer -->
+<footer class="foot">
+  <a class="mark small" href="/" aria-label="Slip3 Studios home"><span>slip</span><span class="three" aria-hidden="true">3</span></a>
+  <p>An independent app studio for iPhone, iPad and the web.</p>
+  <ul aria-label="Apps">
+    <li><a href="/formation-lab/">Formation Lab</a></li>
+    <li><a href="/starting-5/">Starting 5</a></li>
+    <li><a href="/the-fold/">The Fold</a></li>
+    <li><a href="/plonk/">Plonk</a></li>
+  </ul>
+  <p class="fine"><span class="foot-links"><a href="/about/">About</a> · <a href="/journal/">Journal</a> · <a href="/press/">Press</a> · <a href="/privacy/">Privacy</a> · <a href="mailto:slip3studios@gmail.com">slip3studios@gmail.com</a> · <a href="/journal/feed.xml">RSS</a></span><span class="doc-links">© 2026 Slip3 Studios. App Store is a service mark of Apple Inc. · <a href="/plonk/privacy/">Plonk Privacy</a> · <a href="/plonk/terms/">Plonk Terms</a></span></p>
+</footer>
+<!-- /partial:footer -->
+</body>
+</html>
