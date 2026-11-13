@@ -1,1 +1,3 @@
 .lighthouseci/
+.vercel
+.env*
