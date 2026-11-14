@@ -37,7 +37,7 @@ The About page bio paragraphs are locked copy; don't reword them.
 
 ## Demos
 
-`public/demos.js` powers the interactive pieces, each started from a `data-demo` element: `play` (Formation Lab SVG play animation), `quiz` (Starting 5 shot-clock sample; the questions are real NBA facts, keep them verifiable), `plonk` (canvas physics toy using the game's Critters art, `img/plonk-critter-N-160.webp`). `[data-trailer]` wraps a muted video that autoplays unless reduced motion is on, with a pause button.
+`public/demos.js` powers the interactive pieces, each started from a `data-demo` element: `play` (Formation Lab SVG play animation), `quiz` (Starting 5 shot-clock sample; the questions are real NBA facts, keep them verifiable). Plonk has no browser demo on purpose: it didn't match the iPhone game, so the Plonk page shows the trailer and store screenshots instead. `[data-trailer]` wraps a muted video that autoplays unless reduced motion is on, with a pause button.
 
 ## Images and media
 

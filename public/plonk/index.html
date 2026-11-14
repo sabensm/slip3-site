@@ -51,72 +51,56 @@
 </header>
 <!-- /partial:header -->
 
-<main class="plonk" id="content">
-  <section class="plonk-hero" aria-labelledby="plonk-title">
-    <div class="plonk-hero-copy">
-      <p class="eyebrow">Puzzle · iPhone</p>
-      <div class="plonk-wordmark-plate">
-        <img class="plonk-wordmark" src="/img/plonk-wordmark.webp" alt="Plonk" width="855" height="261">
+<main id="content" class="p-plonk">
+  <div class="case-top">
+    <section class="case-hero" aria-labelledby="case-title">
+      <div>
+        <div class="p-head">
+          <img class="icon" src="/img/plonk-icon-256.webp" alt="Plonk app icon" width="96" height="96">
+          <div>
+            <p class="kicker">Puzzle · iPhone</p>
+            <h1 id="case-title">Plonk</h1>
+          </div>
+        </div>
+        <p class="case-pitch">Drop, match, stack and grow. A cozy physics puzzle for a relaxing minute, or a long chase for a new best.</p>
+        <dl class="facts">
+          <div><dt>Platform</dt><dd>iPhone</dd></div>
+          <div><dt>Sets</dt><dd>Critters · Orchard · League</dd></div>
+          <div><dt>Scores</dt><dd>Game Center</dd></div>
+          <div><dt>Sync</dt><dd>iCloud</dd></div>
+        </dl>
       </div>
-      <h1 id="plonk-title">Plonk: Merge Puzzle</h1>
-      <p class="plonk-sub">Drop, Match, Stack &amp; Grow</p>
-      <p class="plonk-pitch">A cozy physics puzzle for a relaxing minute, or a long chase for a new best.</p>
-      <div class="hero-cta plonk-cta">
-        <a class="btn" href="#try-title">Play a quick round</a>
-        <a class="btn ghost" href="#shots-title">See the App Store art</a>
-      </div>
-      <p class="plonk-chips"><span>Game Center leaderboards</span><span>iCloud stats sync</span></p>
-    </div>
-    <div class="plonk-hero-media">
-      <figure class="trailer" data-trailer>
+      <div class="case-media">
+        <figure class="trailer" data-trailer>
         <video src="/media/plonk-preview-444.mp4" poster="/media/plonk-preview-poster-444.webp" width="444" height="960" muted loop playsinline preload="metadata"></video>
         <button class="trailer-btn" type="button" aria-pressed="false">Play trailer</button>
         <figcaption class="visually-hidden">Plonk gameplay trailer: pieces drop, merge into bigger pieces and chain into combos.</figcaption>
       </figure>
-    </div>
-  </section>
+      </div>
+    </section>
+  </div>
 
-  <section class="plonk-block" aria-labelledby="play-title">
-    <h2 id="play-title" class="section-title">How to play</h2>
-    <ol class="plonk-feats">
-      <li>
-        <h3>Aim and drop.</h3>
-        <p>Move to aim, tap to drop. The Next preview shows what’s coming, so you can plan each drop.</p>
-      </li>
-      <li>
-        <h3>Match and grow.</h3>
-        <p>Two matching pieces combine into the next, bigger piece. Merge back to back to build combos.</p>
-      </li>
-      <li>
-        <h3>Real physics.</h3>
-        <p>Pieces fall, roll and settle. Every drop changes the pile, and the bin keeps filling.</p>
-      </li>
-    </ol>
-    <p class="plonk-more">Critters runs from a ladybug to an elephant, Orchard from a blueberry to a watermelon, and League from a golf ball to a beach ball. Seasonal sets join for the holidays.</p>
-  </section>
-
-  <section class="plonk-block" aria-labelledby="try-title">
-    <h2 id="try-title" class="section-title">Try it here</h2>
-    <div class="demo" data-demo="plonk">
+  <section class="sec" aria-labelledby="brief-title">
+    <h2 id="brief-title" class="section-title">The idea</h2>
+    <div class="brief">
+      <p class="lead">Every set has its own ladder of pieces to grow.</p>
       <div>
-        <div class="toy-hud"><span>Score <b data-score>0</b></span><span>Next <img data-next src="/img/plonk-critter-0-160.webp" alt="Next: Ladybug" width="30" height="30"></span></div>
-        <div class="toy" tabindex="0" role="application" aria-label="Plonk sample bin. Move the pointer or use the arrow keys to aim; click, tap, Space or Enter to drop.">
-          <canvas width="360" height="480"></canvas>
-        </div>
-        <p class="visually-hidden" aria-live="polite"></p>
-      </div>
-      <div class="demo-copy">
-        <h3>A pocket-sized Critters bin.</h3>
-        <p>Aim with your pointer or the arrow keys, then click, tap or press Space to drop. Match two of a kind to grow them, and keep the pile below the dashed line.</p>
-        <button class="btn" type="button" data-reset hidden>One more go</button>
-        <p class="demo-note">A simplified browser sketch with the game’s real Critters art. The iPhone game has the full physics, sound and every set.</p>
+        <p>Critters runs from a ladybug to an elephant, Orchard from a blueberry to a watermelon, and League from a golf ball to a beach ball. Seasonal sets join for the holidays.</p>
       </div>
     </div>
   </section>
 
-  <section class="plonk-block" aria-labelledby="shots-title">
-    <h2 id="shots-title" class="section-title">In the App Store</h2>
-    <p class="sec-intro">Every screen in these frames was rendered by the game itself. <a href="/journal/plonk-store-art-is-real-gameplay/">How the store art was made →</a></p>
+  <section class="sec" aria-labelledby="decisions-title">
+    <h2 id="decisions-title" class="section-title">What’s inside</h2>
+    <ol class="decisions three">
+      <li><h3>Aim and drop.</h3><p>Move to aim, tap to drop. The Next preview shows what’s coming, so you can plan each drop.</p></li>
+      <li><h3>Match and grow.</h3><p>Two matching pieces combine into the next, bigger piece. Merge back to back to build combos.</p></li>
+      <li><h3>Real physics.</h3><p>Pieces fall, roll and settle. Every drop changes the pile, and the bin keeps filling.</p></li>
+    </ol>
+  </section>
+
+  <section class="sec" aria-labelledby="store-title">
+    <h2 id="store-title" class="section-title">Screenshots</h2>
     <div class="strip" role="list" aria-label="Plonk App Store frames">
       <figure role="listitem">
         <img src="/img/plonk-01-critters-drop-540.webp" srcset="/img/plonk-01-critters-drop-540.webp 540w, /img/plonk-01-critters-drop-1080.webp 1080w" sizes="270px" width="540" height="1174" alt="Critters frame. Headline: Drop a piece… plonk! A fox has just dropped on the aim line above a bin of animal pieces." loading="lazy">
@@ -153,24 +137,17 @@
     </div>
   </section>
 
-  <section class="sec" aria-labelledby="cta-title">
-    <div class="case-hero case-cta p-plonk">
-      <div>
-        <h2 id="cta-title">Give it a shot.</h2>
-        <p>A round takes a minute or two. Play one in your browser, then chase a new best on iPhone.</p>
-      </div>
-      <div class="hero-cta">
-        <a class="btn" href="#try-title">Play a quick round</a>
-      </div>
-    </div>
-    <nav class="legal-nav plonk-docs" aria-label="Plonk documents">
+  <div class="sec">
+    <nav class="legal-nav app-links" aria-label="More">
+      <a href="/journal/plonk-store-art-is-real-gameplay/">Journal: every frame is the real game</a>
+      <span class="sep" aria-hidden="true">·</span>
       <a href="/plonk/privacy/">Privacy Policy</a>
       <span class="sep" aria-hidden="true">·</span>
       <a href="/plonk/terms/">Terms &amp; Conditions</a>
       <span class="sep" aria-hidden="true">·</span>
       <a href="/contact/">Support</a>
     </nav>
-  </section>
+  </div>
 
   <a class="next-case" href="/formation-lab/"><span>Next app</span><b>Formation Lab →</b></a>
 </main>
