@@ -229,6 +229,9 @@ h1 .slip{display:inline-block;color:var(--accent-display);transform:rotate(-4deg
 .case-cta p{margin:0;max-width:52ch;color:color-mix(in srgb,var(--pt) 82%,transparent)}
 .case-cta .hero-cta{justify-content:flex-end}
 .app-links{margin:1.2rem 0 0}
+.store-badge{display:inline-flex;line-height:0;border-radius:10px;transition:transform .2s}
+.store-badge img{height:48px;width:auto}
+.store-badge:hover{transform:translateY(-2px)}
 .strip{display:flex;gap:clamp(.75rem,1.6vw,1.25rem);overflow-x:auto;scroll-snap-type:x mandatory;padding:.25rem 0 1.25rem;scrollbar-width:thin}
 .strip figure{margin:0;flex:0 0 clamp(190px,21vw,270px);scroll-snap-align:start}
 .strip img{width:100%;height:auto;border-radius:18px;box-shadow:0 18px 40px -26px rgb(20 18 16 / .6);background:var(--card)}

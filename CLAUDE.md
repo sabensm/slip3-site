@@ -33,6 +33,8 @@ Each app has a palette class (`.p-fl`, `.p-s5`, `.p-fold`, `.p-plonk`) setting `
 
 The brand motif is the tilted, offset orange "3" (`--tilt:-10deg`, `.mark .three`); it carries across pages via a CSS view transition. "Slipped" elements reuse `--accent`. Fonts are self-hosted Latin subsets in `public/fonts/` (licenses in `LICENSES.md`).
 
+Buttons are only for actions: `.btn` for the main way to play an app, `.btn.ghost` for the second. App Store links use Apple's official badge (`.store-badge` with `/img/app-store-badge-black.svg`, from toolbox.marketingtools.apple.com); don't recolor, crop or add text to it. Journal, privacy, terms and support are plain text links.
+
 The About page bio paragraphs are locked copy; don't reword them.
 
 ## Demos
