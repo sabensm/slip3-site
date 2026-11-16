@@ -16,7 +16,7 @@ python3 -m http.server 8000 -d public                 # local preview (`site` in
 
 **After editing any page, partial or journal post, run `node scripts/build.mjs`.** CI (`.github/workflows/site.yml`) runs the check mode, the link checker, html-validate and Lighthouse with budgets in `lighthouserc.json`.
 
-Vercel-only behavior in `public/vercel.json` (cleanUrls, trailing slashes, the `slip3-site.vercel.app` redirect, immutable caching for `/img/`, `/fonts/`, `/media/`) won't apply under a plain static server. Vercel Web Analytics is loaded only on the `slip3studios.com` host.
+Vercel-only behavior in `public/vercel.json` (cleanUrls, trailing slashes, the preview-host redirect, immutable caching for `/img/`, `/fonts/`, `/media/`) won't apply under a plain static server. Vercel Web Analytics is loaded only on the `slip3studios.com` host.
 
 ## How pages are put together
 
@@ -27,11 +27,11 @@ Vercel-only behavior in `public/vercel.json` (cleanUrls, trailing slashes, the `
 
 ## Design system (studio.css)
 
-Colors are CSS custom properties on `:root` (`--bg`, `--ink`, `--muted`, `--line`, `--card`, `--accent` = `#ff5a1f`). Dark values are defined twice and must stay in sync: under `@media (prefers-color-scheme:dark){:root:not([data-theme=light])}` and under `:root[data-theme=dark]`. `theme.js` toggles `data-theme` and stores it as `s3-theme` in localStorage. `<meta name="theme-color">` in the head partial mirrors `--bg`.
+The palette is navy `#1c2430`, cream `#f3efe6`, sea-glass `#8ec8c8` and amber `#e39b2b`, plus the derived tints in `public/studio.css`. Light cream is the default. Dark navy follows `prefers-color-scheme` and the header theme toggle. Dark token values are written twice and must stay in sync: under `@media (prefers-color-scheme:dark){:root:not([data-theme=light])}` and under `:root[data-theme=dark]`. `theme.js` toggles `data-theme` and stores it as `s3-theme` in localStorage. `<meta name="theme-color">` in the head partial is cream in light mode and navy in dark mode.
 
-Each app has a palette class (`.p-fl`, `.p-s5`, `.p-fold`, `.p-plonk`) setting `--pa/--pb/--pt`; used by homepage `.product` cards and by app pages (`<main class="p-…">` + `.case-hero`). Scope card-only rules to `.product.p-…` so they don't leak into case pages.
+The mark is the horizontal lockup: three-bar icon, "Slip", and a sea-glass "3" whose SVG outline is already dropped and tilted. `.mark .three` is the only element with `view-transition-name: slip-three`. A hover may add a little more drop and tilt; it must not redraw the resting outline. Amber is the small buoy (eyebrows, counters), used sparingly. The only webfont is the self-hosted Space Grotesk Latin subset in `public/fonts/` (license in `public/fonts/LICENSES.md` and `OFL-SpaceGrotesk.txt`).
 
-The brand motif is the tilted, offset orange "3" (`--tilt:-10deg`, `.mark .three`); it carries across pages via a CSS view transition. "Slipped" elements reuse `--accent`. Fonts are self-hosted Latin subsets in `public/fonts/` (licenses in `LICENSES.md`).
+Homepage lineup tiles use `.g-fl`, `.g-plonk`, `.g-s5` and `.g-fold` for the icon well only. App pages use a cream case hero and a navy closing panel.
 
 Buttons are only for actions: `.btn` for the main way to play an app, `.btn.ghost` for the second. App Store links use Apple's official badge (`.store-badge` with `/img/app-store-badge-black.svg`, from toolbox.marketingtools.apple.com); don't recolor, crop or add text to it. Journal, privacy, terms and support are plain text links.
 
@@ -39,18 +39,18 @@ The About page bio paragraphs are locked copy; don't reword them.
 
 ## Demos
 
-`public/demos.js` powers the interactive pieces, each started from a `data-demo` element: `play` (Formation Lab SVG play animation), `quiz` (Starting 5 shot-clock sample; the questions are real NBA facts, keep them verifiable). Plonk has no browser demo on purpose: it didn't match the iPhone game, so the Plonk page shows the trailer and store screenshots instead. `[data-trailer]` wraps a muted video that autoplays unless reduced motion is on, with a pause button.
+`public/demos.js` powers the interactive pieces, each started from a `data-demo` element: `play` (Formation Lab SVG play animation), `quiz` (Starting 5 shot-clock sample; the questions are real NBA facts, keep them verifiable). A right quiz answer is a sea-glass fill with navy text; a wrong answer is a navy outline and a strike. Plonk has no browser demo on purpose: it didn't match the iPhone game, so the Plonk page shows a self-hosted click-to-play trailer (poster only until the button is activated) and store screenshots.
 
 ## Images and media
 
 - `raw/` holds sources (not deployed). `node scripts/images.mjs` makes `public/img/<source>-<width>.webp` for the sources listed in its `JOBS` table (needs `cwebp`). `/img/` is cached immutably for a year, so **give a changed image a new filename instead of overwriting it.** Older single-size images (`fl-shot1.webp`, icons) predate the script.
 - Latest store art lives outside the repo in `~/App Resources/<App>/screenshots/` (Plonk: `iphone-6.3`; Formation Lab: `store-v2/iphone61`; Starting 5: `store-v2/leather/iphone61`). Copy into `raw/` as JPG, then run the image script.
 - `public/media/` holds the web-encoded Plonk trailer (ffmpeg, 444px wide, no audio) and its poster.
-- OG cards: `og-src/*.html` layouts rendered with `scripts/render-og.swift` (usage in its header) to `public/og/*.png`. App pages and journal posts each point at a card; `og-src/wordmark-*.html` render the press-kit logos at 1600×800.
-- Press kit: `scripts/press-kit.sh` builds `public/press/slip3-studios-press-kit.zip` from `raw/`, `press/README.txt` and the rendered wordmarks. Update the size in the download button on `/press/` when it changes.
+- OG cards: `og-src/*.html` layouts rendered at 1200×630 to `public/og/*-v2.png` (WebKit via `scripts/render-og.swift`, or headless Chrome). App pages and journal posts each point at a `-v2` card. Give a replaced card a new filename; `/og/` is not in the immutable cache, but old filenames stay in crawlers.
+- Press kit: `scripts/press-kit.sh` builds `public/press/slip3-studios-press-kit.zip` from `raw/`, `press/README.txt` and `public/brand/`. Update the size in the download button on `/press/` when it changes. Brand SVGs in `public/brand/` are linked from the press page.
 
 ## Content rules
 
-Facts on app pages (launch dates, versions, ratings, pipeline details) come from the app repos in `~/Development` (`Juke` = Formation Lab, `the-starting-five`, `TheFold`, `godot-games/plonk-ios`) and the public iTunes lookup API. Don't invent metrics, testimonials or claims; update the facts when an app ships a release. When adding or renaming an app, update the homepage cards, ticker and fan, its app page, the footer partial, `/about/`, `/press/` (page and kit), the OG cards in `og-src/`, and the README.
+Facts on app pages (launch dates, versions, ratings, pipeline details) come from the app repos in `~/Development` (`Juke` = Formation Lab, `the-starting-five`, `TheFold`, `godot-games/plonk-ios`) and the public iTunes lookup API. Don't invent metrics, testimonials or claims; update the facts when an app ships a release. When adding or renaming an app, update the homepage spotlight and lineup, its app page, the footer partial, `/about/`, `/press/` (page and kit), the OG cards in `og-src/`, and the README.
 
 Commit subjects are one plain imperative sentence, often with a short body saying what changed and what was deliberately left alone.
