@@ -27,24 +27,24 @@
     svg('line', { x1: 0, x2: W, y1: LOS, y2: LOS, class: 'los' }, field);
     var defs = svg('defs', {}, field);
     var players = [
-      { id: 'X', color: '#1d3b8f', d: 'M50 205 L50 168 L150 106', start: 0.12, end: 0.78 },
-      { id: 'Y', color: '#2f9e5b', d: 'M128 214 L128 150 L250 150', start: 0.12, end: 0.82, catcher: true },
-      { id: 'Z', color: '#7b4bd6', d: 'M312 205 L312 46', start: 0.12, end: 1 },
-      { id: 'C', color: '#f2c230', d: 'M180 205 L180 158 L180 168', start: 0.12, end: 0.7, square: true },
-      { id: 'Q', color: '#ef6a2b', d: 'M180 242 L180 262', start: 0.04, end: 0.3 }
+      { id: 'X', fill: '#1c2430', ink: '#f3efe6', d: 'M50 205 L50 168 L150 106', start: 0.12, end: 0.78 },
+      { id: 'Y', fill: '#2a6f6f', ink: '#f3efe6', d: 'M128 214 L128 150 L250 150', start: 0.12, end: 0.82, catcher: true },
+      { id: 'Z', fill: '#8ec8c8', ink: '#1c2430', d: 'M312 205 L312 46', start: 0.12, end: 1 },
+      { id: 'C', fill: '#e39b2b', ink: '#1c2430', d: 'M180 205 L180 158 L180 168', start: 0.12, end: 0.7, square: true },
+      { id: 'Q', fill: '#2d343f', ink: '#f3efe6', d: 'M180 242 L180 262', start: 0.04, end: 0.3 }
     ];
     players.forEach(function (p) {
       var m = svg('marker', { id: 'ah-' + p.id, viewBox: '0 0 10 10', refX: 6, refY: 5, markerWidth: 5, markerHeight: 5, orient: 'auto' }, defs);
-      svg('path', { d: 'M0 0 L10 5 L0 10 z', fill: p.color }, m);
-      p.path = svg('path', { d: p.d, class: 'route', stroke: p.color, 'marker-end': 'url(#ah-' + p.id + ')' }, field);
+      svg('path', { d: 'M0 0 L10 5 L0 10 z', class: 'route-head' }, m);
+      p.path = svg('path', { d: p.d, class: 'route', 'marker-end': 'url(#ah-' + p.id + ')' }, field);
       p.len = p.path.getTotalLength();
     });
     var ball = svg('ellipse', { rx: 7, ry: 4.5, class: 'ball' }, field);
     players.forEach(function (p) {
       p.g = svg('g', {}, field);
-      if (p.square) svg('rect', { x: -14, y: -14, width: 28, height: 28, rx: 6, fill: p.color }, p.g);
-      else svg('circle', { r: 15, fill: p.color }, p.g);
-      svg('text', { class: 'ptxt', fill: p.square ? '#171310' : '#fff', style: p.square ? 'fill:#171310' : '' }, p.g).textContent = p.id;
+      if (p.square) svg('rect', { x: -14, y: -14, width: 28, height: 28, rx: 6, fill: p.fill }, p.g);
+      else svg('circle', { r: 15, fill: p.fill }, p.g);
+      svg('text', { class: 'ptxt', fill: p.ink }, p.g).textContent = p.id;
     });
     var THROW = 0.42, CATCH = 0.82;
     function ease(t) { return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; }
@@ -144,13 +144,29 @@
     end.querySelector('button').addEventListener('click', function () { start(); buttons[0].focus(); });
   }
 
-  // ---------- Muted trailer: plays unless the viewer prefers reduced motion; always pausable ----------
-  document.querySelectorAll('[data-trailer]').forEach(function (fig) {
-    var v = fig.querySelector('video'), b = fig.querySelector('button');
-    function sync() { var on = !v.paused; b.textContent = on ? 'Pause trailer' : 'Play trailer'; b.setAttribute('aria-pressed', String(on)); }
-    b.addEventListener('click', function () { if (v.paused) v.play(); else v.pause(); });
-    v.addEventListener('play', sync); v.addEventListener('pause', sync);
-    if (!reduce) v.play().catch(function () {});
+  // Self-hosted trailer: the <video> (and its mp4) exists only after the click.
+  function activateTrailer(btn) {
+    if (!btn || (btn.querySelector && btn.querySelector('video'))) return;
+    var v = document.createElement('video');
+    var src = btn.getAttribute('data-src');
+    var poster = btn.getAttribute('data-poster');
+    v.src = src;
+    v.setAttribute('src', src);
+    if (poster) { v.poster = poster; v.setAttribute('poster', poster); }
+    v.controls = true;
+    v.setAttribute('controls', '');
+    v.playsInline = true;
+    v.setAttribute('playsinline', '');
+    v.muted = true;
+    v.setAttribute('muted', '');
+    if (!reduce) { v.autoplay = true; v.setAttribute('autoplay', ''); }
+    btn.replaceWith(v);
+    var played = v.play && v.play();
+    if (played && played.catch) played.catch(function () {});
+  }
+  window.s3ActivateTrailer = activateTrailer;
+  document.querySelectorAll('.trailer-lite').forEach(function (btn) {
+    btn.addEventListener('click', function (event) { window.s3ActivateTrailer(event.currentTarget); });
   });
 
   var demos = { play: play, quiz: quiz };
