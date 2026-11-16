@@ -1,14 +1,11 @@
 #!/bin/zsh
-# Builds public/press/slip3-studios-press-kit.zip from raw/, public/ and rendered wordmarks.
-# Wordmarks: render og-src/wordmark-{light,dark}.html at 1600x800 with scripts/render-og.swift first,
-# into $WORDMARKS (default /tmp/slip3-wordmarks).
+# Builds public/press/slip3-studios-press-kit.zip from raw/, public/brand/ and press/README.txt.
 set -e
 cd "${0:A:h}/.."
-W=${WORDMARKS:-/tmp/slip3-wordmarks}
 K=$(mktemp -d)/slip3-studios-press-kit
 mkdir -p $K/{logos,app-icons,screenshots,founder}
-cp $W/wordmark-light.png $K/logos/slip3-wordmark-on-light.png
-cp $W/wordmark-dark.png $K/logos/slip3-wordmark-on-dark.png
+cp public/brand/*.svg $K/logos/
+cp public/brand/*1600.png $K/logos/
 cp public/favicon.svg $K/logos/slip3-mark.svg
 cp public/icon-512.png $K/logos/slip3-mark-512.png
 sips -s format png raw/fl-icon.jpg --out $K/app-icons/formation-lab.png >/dev/null

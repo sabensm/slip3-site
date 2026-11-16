@@ -1,6 +1,6 @@
 // Renders an og-src/*.html layout to PNG with WebKit (1200x630 unless a width and height are given).
 // Usage (from the repo root; compiled because AppKit/WebKit do not link in `swift` script mode):
-//   swiftc -O scripts/render-og.swift -o /tmp/render-og && /tmp/render-og og-src/slip3.html public/og/slip3.png [width height]
+//   swiftc -O scripts/render-og.swift -o /tmp/render-og && /tmp/render-og og-src/slip3.html public/og/slip3-v2.png [width height]
 import AppKit
 import WebKit
 let args = CommandLine.arguments
