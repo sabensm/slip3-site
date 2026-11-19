@@ -20,4 +20,4 @@ sea-glass 3 and the three-bar icon are part of the mark. App Store is a
 service mark of Apple Inc.
 
 CONTACT
-slip3studios@gmail.com
+support@slip3studios.com
