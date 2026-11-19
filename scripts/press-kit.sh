@@ -12,9 +12,11 @@ sips -s format png raw/fl-icon.jpg --out $K/app-icons/formation-lab.png >/dev/nu
 sips -s format png raw/s5-icon.jpg --out $K/app-icons/starting-5.png >/dev/null
 sips -s format png raw/fold-icon.jpg --out $K/app-icons/the-fold.png >/dev/null
 cp raw/plonk-icon.png $K/app-icons/plonk.png
+sips -s format png raw/gg-icon.jpg --out $K/app-icons/golf-gone-far.png >/dev/null
 for f in raw/fl-store-0{1,2,3}-*.jpg raw/s5-store-0{1,3,6}-*.jpg raw/plonk-0{1,3,8}-*.jpg; do
   sips -s format jpeg -s formatOptions 85 -Z 2348 $f --out $K/screenshots/$(basename $f) >/dev/null
 done
+cp raw/gg-0{1,3,4}-*.jpg $K/screenshots/   # 720 wide game renders; not upscaled
 cp raw/fold-shot1.jpg $K/screenshots/the-fold-library.jpg
 cp raw/fold-shot2.jpg $K/screenshots/the-fold-recipe.jpg
 cp public/img/mike-sabens.jpg $K/founder/mike-sabens.jpg

@@ -191,6 +191,7 @@ h3{font-size:var(--fs-h3);letter-spacing:-.01em;margin:0 0 var(--s-3)}
 .lineup{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--s-5)}
 .game{grid-column:span 4;position:relative;display:flex;flex-direction:column;background:var(--surface);border:var(--rule) solid var(--line);border-radius:var(--r-lg);overflow:hidden;text-decoration:none;color:inherit;box-shadow:var(--shadow-1);transition:transform var(--dur-2) var(--ease-dock),box-shadow var(--dur-2)}
 .game.wide{grid-column:span 8}
+.game.full{grid-column:span 12}
 .game:hover{transform:translateX(var(--slip-shift));box-shadow:var(--shadow-2)}
 .game .art{position:relative;height:clamp(220px,26vw,320px);overflow:hidden;background:var(--tile-bg,var(--navy));display:flex;justify-content:center;align-items:flex-end;gap:12px;padding:var(--s-5) var(--s-5) 0}
 .game .art img{height:92%;width:auto;max-width:none;flex:none;border-radius:18px 18px 0 0;box-shadow:0 10px 30px rgba(0,0,0,.35);transform:translateY(6%)}
@@ -207,6 +208,7 @@ h3{font-size:var(--fs-h3);letter-spacing:-.01em;margin:0 0 var(--s-3)}
 .p-plonk,.g-plonk{--tile-accent:var(--amber)}
 .p-s5,.g-s5{--tile-accent:var(--sea-glass-600)}
 .p-fold,.g-fold{--tile-accent:var(--sea-glass-700)}
+.p-golf,.g-golf{--tile-accent:var(--sea-glass)}
 
 .studio{padding:var(--s-9) 0}
 .studio .inner,.band-pad{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}

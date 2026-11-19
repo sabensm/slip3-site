@@ -20,6 +20,8 @@ const JOBS = [
   ['s5-store-', [540, 1080], 82], // Starting 5 store frames (store-v2, leather)
   ['plonk-home', [603], 86],      // Plonk home screen, rendered from the game at 1.5x
   ['plonk-icon', [256], 88],
+  ['gg-0', [540, 720], 84],       // Golf Gone Far frames, rendered from the game (tools/shots.tscn, 720 wide)
+  ['gg-icon', [256], 88],
 ];
 
 const raws = fs.readdirSync(path.join(ROOT, 'raw')).filter((f) => /\.(png|jpe?g)$/i.test(f));
