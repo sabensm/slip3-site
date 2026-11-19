@@ -107,7 +107,7 @@ for (const name of visibleBands) {
   prevNavy = navy;
 }
 
-for (const route of ['plonk', 'formation-lab', 'starting-5', 'the-fold']) {
+for (const route of ['plonk', 'formation-lab', 'starting-5', 'the-fold', 'golf-gone-far']) {
   const html = read(path.join(PUB, route, 'index.html'));
   const heroAt = html.indexOf('case-hero');
   const heroEnd = html.indexOf('</section>', heroAt);

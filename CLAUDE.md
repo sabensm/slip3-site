@@ -23,7 +23,7 @@ Vercel-only behavior in `public/vercel.json` (cleanUrls, trailing slashes, the p
 - **Partials** (`partials/head.html`, `header.html`, `footer.html`) are copied into every studio page between `<!-- partial:NAME -->` / `<!-- /partial:NAME -->` markers by `build.mjs`. Edit the partial, never the copy in a page. The build sets `aria-current="page"` on partial links matching the page's route and fills `{{year}}`. Page-specific head tags (title, description, canonical, OG, JSON-LD, preloads) sit above the head partial.
 - **New page:** copy an existing one (e.g. `public/press/index.html`), keep the markers empty, give it an absolute `canonical`/`og:url`/`og:image` on `https://slip3studios.com`, then run the build. The sitemap picks it up from its canonical (pages with `noindex` are skipped).
 - **Journal posts** live in `public/journal/<slug>/index.html`. The build reads `og:title`, `description`, `article:published_time` and `article:section` from each post to generate the list between `<!-- generated:journal-list -->` markers (on `/` and `/journal/`) and `public/journal/feed.xml`.
-- **`/about/`** covers the studio and its founder (there is no separate personal page). **`/contact/`** is the single contact page for every Slip3 game: support, privacy requests and press, all at slip3studios@gmail.com. Each game keeps its own privacy and terms pages (e.g. `/plonk/privacy/`); Formation Lab and The Starting 5 have their own sites and support pages, linked from `/contact/`. `public/404.html` is Vercel's not-found page.
+- **`/about/`** covers the studio and its founder (there is no separate personal page). **`/contact/`** is the single contact page for every Slip3 game: support, privacy requests and press, all at slip3studios@gmail.com. Each game keeps its own privacy and terms pages (e.g. `/plonk/privacy/`). Golf Gone Far’s game and App Store Connect link to `/golfgonefar/privacy/`, which `vercel.json` redirects to `/golf-gone-far/privacy/`; Formation Lab and The Starting 5 have their own sites and support pages, linked from `/contact/`. `public/404.html` is Vercel's not-found page.
 
 ## Design system (studio.css)
 
@@ -31,7 +31,7 @@ The palette is navy `#1c2430`, cream `#f3efe6`, sea-glass `#8ec8c8` and amber `#
 
 The mark is the horizontal lockup: three-bar icon, "Slip", and a sea-glass "3" whose SVG outline is already dropped and tilted. `.mark .three` is the only element with `view-transition-name: slip-three`. A hover may add a little more drop and tilt; it must not redraw the resting outline. Amber is the small buoy (eyebrows, counters), used sparingly. The only webfont is the self-hosted Space Grotesk Latin subset in `public/fonts/` (license in `public/fonts/LICENSES.md` and `OFL-SpaceGrotesk.txt`).
 
-Homepage lineup tiles use `.g-fl`, `.g-plonk`, `.g-s5` and `.g-fold` for the icon well only. App pages use a cream case hero and a navy closing panel.
+Homepage lineup tiles use `.g-fl`, `.g-golf`, `.g-plonk`, `.g-s5` and `.g-fold` for the icon well only. App pages use a cream case hero and a navy closing panel.
 
 Buttons are only for actions: `.btn` for the main way to play an app, `.btn.ghost` for the second. App Store links use Apple's official badge (`.store-badge` with `/img/app-store-badge-black.svg`, from toolbox.marketingtools.apple.com); don't recolor, crop or add text to it. Journal, privacy, terms and support are plain text links.
 
@@ -51,6 +51,6 @@ The About page bio paragraphs are locked copy; don't reword them.
 
 ## Content rules
 
-Facts on app pages (launch dates, versions, ratings, pipeline details) come from the app repos in `~/Development` (`Juke` = Formation Lab, `the-starting-five`, `TheFold`, `godot-games/plonk-ios`) and the public iTunes lookup API. Don't invent metrics, testimonials or claims; update the facts when an app ships a release. When adding or renaming an app, update the homepage spotlight and lineup, its app page, the footer partial, `/about/`, `/press/` (page and kit), the OG cards in `og-src/`, and the README.
+Facts on app pages (launch dates, versions, ratings, pipeline details) come from the app repos in `~/Development` (`Juke` = Formation Lab, `the-starting-five`, `TheFold`, `godot-games/plonk-ios`, `godot-games/golf-gone-far`) and the public iTunes lookup API. Don't invent metrics, testimonials or claims; update the facts when an app ships a release. When adding or renaming an app, update the homepage spotlight and lineup, its app page, the footer partial, `/about/`, `/press/` (page and kit), the OG cards in `og-src/`, and the README.
 
 Commit subjects are one plain imperative sentence, often with a short body saying what changed and what was deliberately left alone.

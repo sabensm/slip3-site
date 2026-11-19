@@ -2,6 +2,7 @@
   "cleanUrls": true,
   "trailingSlash": true,
   "redirects": [
+    { "source": "/golfgonefar/:path*", "destination": "/golf-gone-far/:path*", "permanent": true},
     { "source": "/(.*)", "has": [{ "type": "host", "value": "slip3-site.vercel.app" }], "destination": "https://slip3studios.com/$1", "permanent": true}
   ],
   "headers": [
