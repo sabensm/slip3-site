@@ -1,3 +1,4 @@
 .lighthouseci/
 .vercel
 .env*
+.DS_Store
